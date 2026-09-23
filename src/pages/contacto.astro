@@ -6,13 +6,6 @@ import { Image } from 'astro:assets';
 
 import heroImg from '@assets/images/Contactos/hero.webp';
 import mensajeImg from '@assets/images/Contactos/mensaje.webp';
-
-const resolverRuta = (path: string) => {
-  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
-};
 ---
 
 <PlantillaBase 
@@ -56,7 +49,7 @@ const resolverRuta = (path: string) => {
           <Image 
             src={mensajeImg} 
             alt="Dinosaurio feliz con mensaje de contacto" 
-            class="tarjeta-contacto__imagen"
+            class="tarjeta-contacto__imagen rotar-imagen"
             width={320}
             height={320}
             loading="eager"
@@ -181,7 +174,7 @@ const resolverRuta = (path: string) => {
     background-color: var(--color-menta);
     padding-top: 3.5rem;
     padding-bottom: 7.5rem;
-    color: #FFFFFF;
+    color: var(--color-blanco);
   }
 
   .hero-contacto__contenedor {
@@ -201,15 +194,16 @@ const resolverRuta = (path: string) => {
     font-family: var(--fuente-titulos);
     font-size: clamp(2rem, 4.2vw, 3.1rem);
     font-weight: 500;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     line-height: 1.25;
     margin-bottom: 1.25rem;
+    text-wrap: balance;
   }
 
   .hero-contacto__descripcion {
     font-size: 1.05rem;
     line-height: 1.5;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     max-width: 520px;
     margin-bottom: 2rem;
     font-weight: 400;
@@ -248,7 +242,7 @@ const resolverRuta = (path: string) => {
 
   /* COLUMNA IZQUIERDA */
   .tarjeta-contacto__izquierda {
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     padding: 3.5rem 2.5rem;
     display: flex;
     align-items: center;
@@ -304,7 +298,7 @@ const resolverRuta = (path: string) => {
     font-family: var(--fuente-cuerpo);
     font-size: 0.95rem;
     font-weight: 600;
-    color: #FFFFFF;
+    color: var(--color-blanco);
   }
 
   .tarjeta-contacto__derecha :global(.formulario__requerido) {
@@ -318,7 +312,7 @@ const resolverRuta = (path: string) => {
     padding: 0.75rem 1.25rem;
     border-radius: 999px;
     border: none;
-    background-color: #FEF8F0;
+    background-color: var(--color-crema);
     color: #123B56;
     box-shadow: inset 0 1px 2px rgba(18, 59, 86, 0.04);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
@@ -338,7 +332,7 @@ const resolverRuta = (path: string) => {
   .tarjeta-contacto__derecha :global(.formulario__input:focus),
   .tarjeta-contacto__derecha :global(.formulario__textarea:focus) {
     outline: none;
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     box-shadow: 0 0 0 3px rgba(254, 209, 122, 0.6);
   }
 
@@ -366,16 +360,16 @@ const resolverRuta = (path: string) => {
 
   .formulario__estado--exito {
     display: block;
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     color: #123B56;
-    border: 2px solid #FED17A;
+    border: 2px solid var(--color-amarillo);
   }
 
   .formulario__estado--error {
     display: block;
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     color: #C0392B;
-    border: 2px solid #E98C78;
+    border: 2px solid var(--color-coral);
   }
 
   /* OTROS MEDIOS DE CONTACTO */
@@ -422,7 +416,7 @@ const resolverRuta = (path: string) => {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     padding: 1.25rem 1.5rem;
     border-radius: 999px;
     box-shadow: 0 8px 24px rgba(18, 59, 86, 0.06);
@@ -474,6 +468,9 @@ const resolverRuta = (path: string) => {
   }
   .tarjeta-medio__info .nombre__redes{
     font-weight: 600;
+  }
+  .rotar-imagen{
+    transform: scaleX(-1);
   }
 
 </style>

@@ -23,13 +23,6 @@ import mockupAplicacion from '@assets/images/Home/tareas.webp';
 import tareas1Img from '@assets/images/Home/tareas1.webp';
 import tareas2Img from '@assets/images/Home/tareas2.webp';
 import tareas3Img from '@assets/images/Home/tareas3.webp';
-
-const resolverRuta = (path: string) => {
-  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
-};
 ---
 
 <PlantillaBase 
@@ -258,7 +251,7 @@ const resolverRuta = (path: string) => {
 
   <!-- 9. CTA FINAL -->
   <BannerCTA
-    colorFondo="#FED17A"
+    colorFondo="var(--color-amarillo)"
     imagen={iconoOrganizar}
     altImagen="Icono de organización"
     titulo="Organiza lo que importa."
@@ -365,6 +358,7 @@ const resolverRuta = (path: string) => {
     color: #123B56;
     line-height: 1.25;
     margin-bottom: 1rem;
+    text-wrap: balance;
   }
 
   .bloque-texto__descripcion {

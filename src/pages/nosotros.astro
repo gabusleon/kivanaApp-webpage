@@ -18,13 +18,6 @@ import iconoCercania from '@assets/images/Iconos/cercania.webp';
 import iconoColaboracion from '@assets/images/Iconos/colaboracion.webp';
 import iconoAcompanamiento from '@assets/images/Iconos/acompanamiento.webp';
 import iconoMemoria from '@assets/images/Iconos/memoria.webp';
-
-const resolverRuta = (path: string) => {
-  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
-};
 ---
 
 <PlantillaBase 
@@ -169,7 +162,7 @@ const resolverRuta = (path: string) => {
 
   <!-- CTA FINAL -->
   <BannerCTA
-    colorFondo="#E98C78"
+    colorFondo="var(--color-coral)"
     colorTexto="blanco"
     imagen={iconoColaboracion}
     altImagen="Icono de colaboración en equipo"
@@ -234,14 +227,14 @@ const resolverRuta = (path: string) => {
     background-color: var(--color-menta);
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
-    color: #FFFFFF;
+    color: var(--color-blanco);
   }
 
   .solo-lugar__titulo {
     font-family: var(--fuente-titulos);
     font-size: clamp(2.1rem, 3.8vw, 2.8rem);
     font-weight: 500;
-    color: #FED17A;
+    color: var(--color-amarillo);
     line-height: 1.25;
     margin-bottom: 1.25rem;
   }
@@ -249,7 +242,7 @@ const resolverRuta = (path: string) => {
   .solo-lugar__descripcion {
     font-size: 1.15rem;
     line-height: 1.65;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     max-width: 520px;
     margin: 0;
   }
@@ -306,17 +299,17 @@ const resolverRuta = (path: string) => {
   }
 
   .tarjeta-inclinada--organizar {
-    background-color: #6BAD99;
+    background-color: var(--color-menta);
     transform: rotate(-7deg);
   }
 
   .tarjeta-inclinada--participar {
-    background-color: #E98C78;
+    background-color: var(--color-coral);
     transform: rotate(2deg);
   }
 
   .tarjeta-inclinada--recordar {
-    background-color: #FED17A;
+    background-color: var(--color-amarillo);
     transform: rotate(7deg);
   }
 
@@ -341,7 +334,7 @@ const resolverRuta = (path: string) => {
 
   .tarjeta-inclinada--organizar .tarjeta-inclinada__titulo,
   .tarjeta-inclinada--participar .tarjeta-inclinada__titulo {
-    color: #FFFFFF;
+    color: var(--color-blanco);
   }
 
   .tarjeta-inclinada--recordar .tarjeta-inclinada__titulo {
@@ -407,7 +400,7 @@ const resolverRuta = (path: string) => {
   }
 
   .valores__tarjeta {
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     border-radius: 24px;
     padding: 1.5rem 1rem;
     display: flex;
@@ -429,19 +422,19 @@ const resolverRuta = (path: string) => {
   }
 
   .valores__tarjeta--cercania {
-    border: 2.5px solid #6BAD99;
+    border: 2.5px solid var(--color-menta);
   }
 
   .valores__tarjeta--colaboracion {
-    border: 2.5px solid #FED17A;
+    border: 2.5px solid var(--color-amarillo);
   }
 
   .valores__tarjeta--acompanamiento {
-    border: 2.5px solid #E98C78;
+    border: 2.5px solid var(--color-coral);
   }
 
   .valores__tarjeta--memoria {
-    border: 2.5px solid #163C50;
+    border: 2.5px solid var(--color-azul);
   }
 
   .valores__icono {
@@ -458,7 +451,7 @@ const resolverRuta = (path: string) => {
   }
 
   .color-menta {
-    color: #6BAD99;
+    color: var(--color-menta);
   }
 
   .color-amarillo {
@@ -466,11 +459,11 @@ const resolverRuta = (path: string) => {
   }
 
   .color-coral {
-    color: #E98C78;
+    color: var(--color-coral);
   }
 
   .color-azul {
-    color: #163C50;
+    color: var(--color-azul);
   }
 
   @media (max-width: 767px) {

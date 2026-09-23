@@ -15,13 +15,6 @@ import eventosImg from '@assets/images/Funcionalidades/eventos.webp';
 
 // Iconos de la carpeta Iconos
 import estrellaVerdeImg from '@assets/images/Iconos/estrella-combinada-verde.webp';
-
-const resolverRuta = (path: string) => {
-  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
-};
 ---
 
 <PlantillaBase 
@@ -262,7 +255,7 @@ const resolverRuta = (path: string) => {
 
   /* SECCIÓN EMPIEZA EL DÍA (AZUL OSCURO) */
   .seccion-empieza-dia {
-    background-color: #163C50;
+    background-color: var(--color-azul);
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
   }
@@ -294,7 +287,7 @@ const resolverRuta = (path: string) => {
 
   /* TARJETA CENTRAL */
   .empieza-dia__tarjeta-central {
-    background-color: #FEF8F0;
+    background-color: var(--color-crema);
     border-radius: 28px;
     overflow: hidden;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
@@ -327,7 +320,7 @@ const resolverRuta = (path: string) => {
 
   .tarjeta-central__banda-amarilla {
     height: 55px;
-    background-color: #FED17A;
+    background-color: var(--color-amarillo);
     width: 100%;
   }
 
@@ -344,20 +337,20 @@ const resolverRuta = (path: string) => {
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 18px;
     padding: 1rem 1.35rem;
-    color: #FFFFFF;
+    color: var(--color-blanco);
   }
 
   .pildora-detalle__titulo {
     font-family: var(--fuente-cuerpo);
     font-size: 1rem;
     font-weight: 500;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     margin-bottom: 0.2rem;
   }
 
   .pildora-detalle__descripcion {
     font-size: 0.875rem;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     opacity: 0.9;
     margin: 0;
   }
@@ -384,7 +377,7 @@ const resolverRuta = (path: string) => {
     grid-template-columns: 1fr;
     gap: 2rem;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     box-shadow: 0 16px 40px rgba(18, 59, 86, 0.08);
     padding: 20px;
   }
@@ -429,7 +422,7 @@ const resolverRuta = (path: string) => {
     font-family: var(--fuente-titulos);
     font-size: clamp(1.65rem, 2.8vw, 2.1rem);
     font-weight: 500;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     line-height: 1.25;
     margin-bottom: 0.85rem;
   }
@@ -437,18 +430,18 @@ const resolverRuta = (path: string) => {
   .tarjeta-modulo__descripcion {
     font-size: 1rem;
     line-height: 1.55;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     opacity: 0.95;
     margin: 0;
   }
 
   /* SECCIÓN GUARDA LO VIVIDO */ 
   .seccion-guarda-vivido {
-    background-color: #163C50;
+    background-color: var(--color-azul);
     padding-top: 5rem;
     padding-bottom: 7.5rem;
 
-    color: #FFFFFF;
+    color: var(--color-blanco);
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -469,7 +462,7 @@ const resolverRuta = (path: string) => {
     font-family: var(--fuente-titulos);
     font-size: clamp(2.1rem, 4vw, 3rem);
     font-weight: 500;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -477,7 +470,7 @@ const resolverRuta = (path: string) => {
   .guarda-vivido__descripcion {
     font-size: 1.05rem;
     line-height: 1.55;
-    color: #FFFFFF;
+    color: var(--color-blanco);
     opacity: 0.9;
     max-width: 580px;
     margin-left: auto;
@@ -519,7 +512,7 @@ const resolverRuta = (path: string) => {
 
   .badge-puntos {
     background-color: rgba(107, 173, 153, 0.45);
-    border: 1.5px solid #6BAD99;
+    border: 1.5px solid var(--color-menta);
     color: #9EE0CF;
     font-family: var(--fuente-titulos);
     font-size: 1.15rem;
@@ -553,7 +546,7 @@ const resolverRuta = (path: string) => {
   }
 
   .tarjeta-pantalla {
-    background-color: #FFFFFF;
+    background-color: var(--color-blanco);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);

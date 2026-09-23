@@ -72,14 +72,14 @@ const resolverRuta = (path: string) => {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgba(254, 248, 240, 0.95);
+    background-color: rgba(var(--color-crema-rgb), 0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(var(--color-azul-rgb), 0.08);
     transition: background-color 0.3s ease;
   }
 
   .navbar--abierto {
-    background-color: #FEF8F0;
+    background-color: var(--color-crema);
     backdrop-filter: none;
   }
 
@@ -128,7 +128,7 @@ const resolverRuta = (path: string) => {
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: #FEF8F0;
+    background-color: var(--color-crema);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,7 +146,7 @@ const resolverRuta = (path: string) => {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    background-color: #FEF8F0;
+    background-color: var(--color-crema);
   }
 
   .navbar__lista {
@@ -177,15 +177,15 @@ const resolverRuta = (path: string) => {
 
   .navbar__enlace:hover,
   .navbar__enlace:focus-visible {
-    color: #6BAD99;
+    color: var(--color-menta);
     background-color: transparent;
-    border-bottom: 3px solid #6BAD99;
+    border-bottom: 3px solid var(--color-menta);
   }
 
   .navbar__enlace--activo {
-    color: #6BAD99;
+    color: var(--color-menta);
     background-color: transparent;
-    border-bottom: 3px solid #6BAD99;
+    border-bottom: 3px solid var(--color-menta);
   }
 
   @media (min-width: 1024px) {
@@ -230,15 +230,15 @@ const resolverRuta = (path: string) => {
 
     .navbar__enlace:hover,
     .navbar__enlace:focus-visible {
-      color: #6BAD99;
+      color: var(--color-menta);
       background-color: transparent;
-      border-bottom: 3px solid #6BAD99;
+      border-bottom: 3px solid var(--color-menta);
     }
 
     .navbar__enlace--activo {
-      color: #6BAD99;
+      color: var(--color-menta);
       background-color: transparent;
-      border-bottom: 3px solid #6BAD99;
+      border-bottom: 3px solid var(--color-menta);
       font-weight: 700;
     }
   }
