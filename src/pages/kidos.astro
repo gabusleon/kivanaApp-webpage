@@ -28,7 +28,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   <section class="seccion hero-kidos">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
-        <h2 class="hero__titulo">¡Los grandes hábitos <span class="resaltar-coral">empiezan con pequeños logros!</span></h2>
+        <h2 class="hero__titulo">¡Los grandes hábitos empiezan con pequeños logros!</h2>
         <p class="hero__descripcion">
           Kidos convierte actividades cotidianas en una aventura de progreso visible, huevos de dinosaurio y recompensas acordadas en familia.
         </p>
@@ -44,7 +44,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
         </div>
         <div class="hero__acciones">
           <Boton href="/contacto" variante="kidos">
-            Conoce Kivana
+            Contáctanos
           </Boton>
         </div>
       </div>
@@ -128,13 +128,13 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
           <Image src={paso5Img} alt="Recompensa" class="paso-card__img" width={160} height={160} loading="lazy" />
         </div>
         <h3 class="paso-card__titulo">Recompensa</h3>
-        <p class="paso-card__descripcion">Usa tu recompensa acordada en familia para avanzar.</p>
+        <p class="paso-card__descripcion">Acumula huevos para acercarte a las recompensas acordadas en familia.</p>
       </article>
     </div>
 
     <div class="grid-dos-columnas seccion">
         <h2 class="bloque-texto__titulo">Tu progreso.
-          <br><span class="aventura__subtitulo">Tu aventura.</span></h2>
+          <br>Tu aventura.</h2>
         <p class="bloque-texto__descripcion">
           Los niños participan activamente en sus metas diarias con motivación visual. Cada meta comienza con un pequeño esfuerzo. La familia define las recompensas y la cantidad de huevos necesaria para alcanzarlas.
         </p>
@@ -146,7 +146,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   <section class="seccion seccion--amarilla">
     <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
       <div class="bloque-texto">
-        <h2 class="cta-final__titulo">Motivar no significa hacerlo por ellos.</h2>
+        <h2 class="cta-final__titulo">Los padres validan las actividades y acompañan el progreso de cada niño. Kidos ayuda a motivar y reconocer los pequeños logros cotidianos.</h2>
         <p class="bloque-texto__descripcion">
           Los padres mantienen el control de la validación y acompañan el progreso de cada niño. Kidos acompaña, motiva y celebra cada paso de tus hijos garantizando un crecimiento positivo y seguro.
         </p>
@@ -171,7 +171,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
     altImagen="Dinosaurio Kivana"
     titulo="Cada pequeño logro cuenta."
     descripcion="Acompaña cada pequeño paso y convierte las responsabilidades cotidianas en una aventura compartida.."
-    textoBoton1="Conoce Kivana"
+    textoBoton1="Ver funcionalidades"
     hrefBoton1="/funcionalidades"
     textoBoton2="Contactar"
     hrefBoton2="/contacto"
@@ -186,6 +186,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
 
   .hero__titulo {
     margin-bottom: 1.5rem;
+    color: var(--color-azul);
   }
 
   .hero__descripcion {
@@ -315,10 +316,10 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
     z-index: 2;
   }
   .seccion__titulo__kidos{
-    color: var(--color-amarillo);
+    color: var(--color-azul);
     text-align: center;
     margin-bottom: 2.5rem;
-    font-weight: 500;
+    font-weight: 600;
   }
   .seccion__subtitulo {
     max-width: 800px;
@@ -326,8 +327,9 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
     margin-right: auto;
     margin-bottom: .5rem;
     line-height: 1.6;
-    color: var(--color-crema);
+    color: var(--color-azul);
     text-align: center;
+    font-weight: 500;
   }
 
   .flujo-titulo {
@@ -363,7 +365,9 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
       grid-template-columns: repeat(5, 1fr);
     }
   }
-
+  .bloque-texto__titulo{
+    color: var(--color-azul);
+  }
   .paso-card {
     background-color: var(--color-blanco);
     padding: 1.5rem 1.25rem;
@@ -435,12 +439,12 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   }
 
   .cta-final__titulo {
-    color: #123B56;
+    color: var(--color-azul);
     margin-bottom: 1rem;
   }
 
   .cta-final__descripcion {
-    color: #123B56;
+    color: var(--color-azul);
     font-size: 1.2rem;
     max-width: 540px;
     margin-left: auto;
