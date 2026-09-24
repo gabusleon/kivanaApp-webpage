@@ -1,7 +1,11 @@
 ---
 import PlantillaBase from '@plantillas/PlantillaBase.astro';
 import Boton from '@componentes/comunes/Boton.astro';
+import BannerCTA from '@componentes/comunes/BannerCTA.astro';
 import { Image } from 'astro:assets';
+
+// Icono para CTA
+import iconoOrganizar from '@assets/images/Iconos/organizar.webp';
 
 // Importación de Assets
 import heroMockup from '@assets/images/Home/Home-hero2.webp';
@@ -9,12 +13,16 @@ import problemaImg from '@assets/images/Home/Home-problema.webp';
 import solucionImg from '@assets/images/Home/Home-soluciom.webp';
 import organizarcioImg from '@assets/images/Home/Home-kidos.webp';
 import recuerdosImg from '@assets/images/Nosotros/familia.webp';
-import inicioAppImg from '@assets/images/Home/Home-hero.webp';
-import actividadCompleta from '@assets/images/Home/Home-actividad-completa.webp'
-import actividadVerificaion from '@assets/images/Home/Home-actividad-verificacion.webp'
-import actividadRecompensa from '@assets/images/Home/Home-actividad-recompensa.webp'
-import acompanamientoImg from '@assets/images/Home/Home-dino-amarillo.webp'
-import mockupAplicacion from '@assets/images/celular-mockup.png'
+import actividadCompleta from '@assets/images/Home/Home-actividad-completa.webp';
+import actividadVerificaion from '@assets/images/Home/Home-actividad-verificacion.webp';
+import actividadRecompensa from '@assets/images/Home/Home-actividad-recompensa.webp';
+import acompanamientoImg from '@assets/images/Home/Home-dino-amarillo.webp';
+import mockupAplicacion from '@assets/images/Home/tareas.webp';
+
+// Capturas de pantalla para "Un vistazo a Kivana"
+import tareas1Img from '@assets/images/Home/tareas1.webp';
+import tareas2Img from '@assets/images/Home/tareas2.webp';
+import tareas3Img from '@assets/images/Home/tareas3.webp';
 ---
 
 <PlantillaBase 
@@ -31,15 +39,10 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
           Cada tarea, cada plan y cada pequeño logro pueden convertirse en una experiencia para toda la familia.
         </p>
         <div class="hero__acciones">
-          <Boton href="/funcionalidades" variante="kidos">
+          <Boton href='/funcionalidades' variante="kidos">
             Conoce Kivana
           </Boton>
         </div>
-        <!----
-        <div class="hero__tiendas">
-          <span class="hero__tiendas-texto">Próximamente disponible en tiendas oficiales</span>
-        </div>
-        -->
       </div>
       <div class="hero__visual">
         <Image 
@@ -56,10 +59,10 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   </section>
 
   <!-- 2. PROBLEMA COTIDIANO -->
-  <section class="seccion seccion--crema-oscura">
+  <section class="seccion seccion--amarillo">
     <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
       <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo">En casa, todos tienen algo que hacer.</h2>
+        <h2 class="seccion__titulo">En casa, todos tienen algo que hacer.</h2>
         <p class="bloque-texto__descripcion">
           La vida familiar tiene muchas cosas pasando al mismo tiempo. Kivana pone orden al día a día.
         </p>
@@ -77,12 +80,11 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     </div>
   </section>
 
-
-  <!-- 4. ORGANIZACIÓN FAMILIAR -->
+  <!-- 3. ORGANIZACIÓN FAMILIAR -->
   <section class="seccion seccion--blanca">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo"> <span class="resaltar-azul">Kivana</span> pone orden al día a día.</h2>
+        <h2 class="bloque-texto__titulo resaltar-menta"> <span class="resaltar-azul">Kivana</span> pone orden al día a día.</h2>
         <p class="bloque-texto__descripcion">
           Kivana ayuda a que cada miembro de la familia sepa qué toca hoy y qué viene después.
         </p>
@@ -105,7 +107,7 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     </div>
   </section>
 
-  <!-- 5. TRANSICIÓN KIDOS & 6. KIDOS -->
+  <!-- 4. KIDOS AVENTURA -->
   <section class="seccion seccion--amarillo">
     <div class="contenedor texto-centrado grid-dos-columnas">
       <div class="kidos-flujo-contenedor">
@@ -119,24 +121,20 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
         />
       </div>
       <div>
-      <h2 class="seccion__titulo">Organizarse también puede ser una aventura.</h2>
-      <p class="seccion__subtitulo">
-        Con Kidos, las actividades cotidianas se convierten en progreso, huevos y recompensas que motivan a los niños mientras los padres acompañan cada paso.
-      </p>
-      <div class="espacio-superior-lg">
-        <Boton href="/kidos" variante="primario">
-          Descubre cómo funciona Kidos
-        </Boton>
+        <h2 class="seccion__titulo">Organizarse también puede ser una aventura.</h2>
+        <p class="seccion__subtitulo">
+          Con Kidos, las actividades cotidianas se convierten en progreso, huevos y recompensas que motivan a los niños mientras los padres acompañan cada paso.
+        </p>
+        <div class="espacio-superior-lg">
+          <Boton href='/kidos' variante="primario">
+            Descubre cómo funciona Kidos
+          </Boton>
+        </div>
       </div>
-      
-      </div>
-      
-      
-
     </div>
   </section>
 
-  <!---Funcionamiento Kidos -->
+  <!-- 5. FUNCIONAMIENTO KIDOS -->
   <section class="seccion seccion--amarillo">
     <div class="contenedor texto-centrado">
       <div class="pasos-grid">
@@ -156,9 +154,9 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     </div>
   </section>
 
-  <!-- 7. ACOMPAÑAMIENTO PARENTAL -->
+  <!-- 6. ACOMPAÑAMIENTO PARENTAL -->
   <section class="seccion">
-    <div class="contenedor grid-tres-tarjetas">
+    <div class="contenedor tres-columnas">
       <div class="bloque-visual">
         <Image 
           src={mockupAplicacion} 
@@ -188,7 +186,7 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     </div>
   </section>
 
-  <!-- 8. RECUERDOS -->
+  <!-- 7. RECUERDOS -->
   <section class="seccion seccion--blanca">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
@@ -210,68 +208,59 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     </div>
   </section>
 
-  <!-- 9. FAMILIA PRIVADA 
-  <section class="seccion">
-    <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
-      <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo">Tu familia. Tu espacio.</h2>
-        <p class="bloque-texto__descripcion">
-          Crea tu grupo familiar, invita mediante un código y decide quién puede formar parte de él.
-        </p>
-      </div>
-      <div class="bloque-visual">
-        <Image 
-        src={familiaPrivadaImg} 
-        alt="Integración familiar y espacio privado" 
-        class="bloque-visual__imagen"
-        width={480}
-        height={480}
-        loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- 10. UN VISTAZO A KIVANA -->
-  <section class="seccion seccion--crema-oscura">
+  <!-- 8. UN VISTAZO A KIVANA  -->
+  <section class="seccion seccion-vistazo">
     <div class="contenedor texto-centrado">
       <h2 class="seccion__titulo">Un vistazo a Kivana</h2>
       <p class="seccion__subtitulo">Una interfaz limpia, cálida y pensada para la vida diaria del hogar.</p>
-      <div class="galeria-grid">
-        <article class="galeria-card">
-          <Image src={inicioAppImg} alt="Pantalla de Inicio" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 1</h3>
-        </article>
-        <article class="galeria-card">
-          <Image src={inicioAppImg} alt="Calendario de Eventos" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 2</h3>
-        </article>
-        <article class="galeria-card">
-          <Image src={inicioAppImg} alt="Tareas y Actividades" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 3</h3>
-        </article>
+      
+      <div class="vistazo-grid">
+        <div class="vistazo-pantalla vistazo-pantalla--izquierda">
+          <Image 
+            src={tareas1Img} 
+            alt="Pantalla de Tareas completadas en Kivana" 
+            class="vistazo-imagen"
+            width={340}
+            height={580}
+            loading="lazy"
+          />
+        </div>
+        <div class="vistazo-pantalla vistazo-pantalla--centro">
+          <Image 
+            src={tareas2Img} 
+            alt="Pantalla principal de Tareas en Kivana" 
+            class="vistazo-imagen"
+            width={360}
+            height={620}
+            loading="lazy"
+          />
+        </div>
+        <div class="vistazo-pantalla vistazo-pantalla--derecha">
+          <Image 
+            src={tareas3Img} 
+            alt="Pantalla de Calendario en Kivana" 
+            class="vistazo-imagen"
+            width={340}
+            height={580}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 11. CTA FINAL -->
-  <section class="seccion cta-final">
-    <div class="contenedor cta-final__contenedor">
-      <h2 class="cta-final__titulo">Organiza lo que importa.</h2>
-      <p class="cta-final__descripcion">
-        Conecta a tu familia con una experiencia simple y organizada.
-      </p>
-      <div class="cta-final__acciones">
-        <Boton href="/contacto" variante="menta">
-          Conoce Kivana
-        </Boton>
-        <Boton href="/funcionalidades" variante="crema">
-          Ver funcionalidades
-        </Boton>
-      </div>
-    </div>
-  </section>
+  <!-- 9. CTA FINAL -->
+  <BannerCTA
+    colorFondo="var(--color-amarillo)"
+    imagen={iconoOrganizar}
+    altImagen="Icono de organización"
+    titulo="Organiza lo que importa."
+    descripcion="Conecta a tu familia con una experiencia simple y organizada."
+    textoBoton1="Conoce Kivana"
+    hrefBoton1="/funcionalidades"
+    textoBoton2="Ver funcionalidades"
+    hrefBoton2="/funcionalidades"
+  />
 </PlantillaBase>
 
 <style>
@@ -293,19 +282,12 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     }
   }
 
-  .hero__badge {
-    display: inline-block;
-    font-family: var(--fuente-cuerpo);
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--color-azul);
-    background-color: var(--color-amarillo);
-    padding: 0.35rem 1rem;
-    border-radius: var(--radio-completo);
-    margin-bottom: 1.25rem;
-  }
-
   .hero__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    font-weight: 500;
+    color: var(--color-menta);
+    line-height: 1.2;
     margin-bottom: 1.25rem;
   }
 
@@ -313,6 +295,7 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 560px;
+    color: #123B56;
   }
 
   .hero__acciones {
@@ -322,12 +305,6 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     margin-bottom: 1.75rem;
   }
 
-  .hero__tiendas-texto {
-    font-size: 0.9rem;
-    color: rgba(var(--color-azul-rgb), 0.65);
-    font-weight: 600;
-  }
-
   .hero__imagen {
     width: 100%;
     max-width: 520px;
@@ -335,17 +312,19 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     margin-left: auto;
     margin-right: auto;
   }
-@media(max-width: 1024px){
-  .hero__descripcion{
-    text-align: center;
+
+  @media(max-width: 1024px){
+    .hero__descripcion{
+      text-align: center;
+    }
+    .hero__titulo{
+      text-align: center;
+    }
+    .hero__acciones{
+      justify-content: center;
+    }
   }
-  .hero__titulo{
-    text-align: center;
-  }
-  .hero__acciones{
-    justify-content: center;
-  }
-}
+
   /* Diseños de Grid */
   .grid-dos-columnas {
     display: grid;
@@ -373,12 +352,19 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   }
 
   .bloque-texto__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+    font-weight: 500;
+    color: #123B56;
+    line-height: 1.25;
     margin-bottom: 1rem;
+    text-wrap: balance;
   }
 
   .bloque-texto__descripcion {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    color: #123B56;
   }
 
   .bloque-visual__imagen {
@@ -388,11 +374,13 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     margin-left: auto;
     margin-right: auto;
   }
+
   @media(max-width: 1024px) {
     .bloque-texto{
       text-align: center;
     }
   }
+
   .seccion--crema-oscura {
     background-color: rgba(var(--color-amarillo-rgb), 0.12);
   }
@@ -400,72 +388,28 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   .seccion--blanca {
     background-color: var(--color-blanco);
   }
+
   .seccion--amarillo{
     background-color: var(--color-amarillo);
   }
-  .seccion--kidos {
-    background-color: rgba(var(--color-menta-rgb), 0.1);
-  }
 
   .seccion__titulo {
-    margin-bottom: 1rem;
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.1rem, 3.8vw, 2.8rem);
+    font-weight: 500;
     color: var(--color-azul);
+    margin-bottom: 1rem;
   }
 
   .seccion__subtitulo {
+    font-family: var(--fuente-cuerpo);
     max-width: 680px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2.5rem;
-    font-size: 1.15rem;
-  }
-
-  /* Tarjetas 3 Pilares */
-  .grid-tres-tarjetas {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .grid-tres-tarjetas {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .tarjeta {
-    background-color: var(--color-blanco);
-    padding: 2.25rem 1.5rem;
-    border-radius: var(--radio-lg);
-    box-shadow: var(--sombra-suave);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    border: 1px solid rgba(var(--color-azul-rgb), 0.05);
-  }
-
-  .tarjeta:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sombra-media);
-  }
-
-  .tarjeta__icono-contenedor {
-    margin-bottom: 1.25rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .tarjeta__icono {
-    width: 90px;
-    height: auto;
-  }
-
-  .tarjeta__titulo {
-    margin-bottom: 0.75rem;
-  }
-
-  .tarjeta__descripcion {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    color: #123B56;
+    opacity: 0.85;
   }
 
   /* Lista de Beneficios */
@@ -486,18 +430,6 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   }
 
   /* Kidos Flujo */
-  .badge-ludico {
-    display: inline-block;
-    font-family: var(--fuente-cuerpo);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-azul);
-    background-color: var(--color-menta);
-    padding: 0.35rem 1rem;
-    border-radius: var(--radio-completo);
-    margin-bottom: 1rem;
-  }
-
   .kidos-flujo-imagen {
     width: 100%;
     max-width: 960px;
@@ -509,19 +441,18 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   .espacio-superior-lg {
     margin-top: 2rem;
   }
-/*Pasos Kivana */
+
+  /* Pasos Kivana */
   .pasos-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
   @media (min-width: 768px) {
     .pasos-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  .pasos-card {
   }
 
   .pasos-card:hover {
@@ -533,51 +464,124 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     height: auto;
     border-radius: var(--radio-sm);
     margin-bottom: 1rem;
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    .pasos-card__imagen {
+      width: 90%;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .pasos-card__titulo {
+    font-family: var(--fuente-titulos);
     font-size: 1.2rem;
+    font-weight: 500;
     color: var(--color-azul);
     padding: 0.85rem 0.85rem;
     background-color: var(--color-crema);
     border-radius: var(--radio-md);
-    border-color: var(--color-menta);
   }
 
-  /* Galería */
-  .galeria-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+  .tres-columnas{
+    display: flex;
+  }
+  @media (max-width: 1024px) {
+    .tres-columnas{
+      flex-direction: column;
+      gap: 30;
+    }
+  }
+  /* 10. UN VISTAZO A KIVANA */
+  .seccion-vistazo {
+    background-color: var(--color-crema);
+    padding-top: 4.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .vistazo-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
+    margin-top: 2.5rem;
   }
 
   @media (min-width: 768px) {
-    .galeria-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .vistazo-grid {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-  .galeria-card {
-    background-color: var(--color-blanco);
-    padding: 1.5rem;
-    border-radius: var(--radio-md);
-    box-shadow: var(--sombra-suave);
-    transition: transform 0.25s ease;
+  .vistazo-pantalla {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(18, 59, 86, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 310px;
+    position: relative;
   }
 
-  .galeria-card:hover {
-    transform: translateY(-4px);
+  @media (max-width: 767px) {
+    .vistazo-pantalla {
+      max-width: 260px;
+      width: 85%;
+    }
   }
 
-  .galeria-card__imagen {
+  @media (min-width: 768px) {
+    .vistazo-pantalla {
+      flex: 1;
+    }
+
+    .vistazo-pantalla--izquierda {
+      z-index: 1;
+      transform: scale(0.7);
+      margin-right: -4%;
+    }
+    .vistazo-pantalla--izquierda:hover {
+      transform: scale(0.8);
+      box-shadow: 0 28px 60px rgba(18, 59, 86, 0.28);
+    }
+    .vistazo-pantalla--centro {
+      z-index: 3;
+      transform: scale(0.8);
+      box-shadow: 0 24px 50px rgba(18, 59, 86, 0.22);
+    }
+
+    .vistazo-pantalla--centro:hover {
+      transform: scale(0.9);
+      box-shadow: 0 28px 60px rgba(18, 59, 86, 0.28);
+    }
+    .vistazo-pantalla--derecha:hover {
+      transform: scale(0.8);
+      box-shadow: 0 28px 60px rgba(18, 59, 86, 0.28);
+    }
+
+    .vistazo-pantalla--derecha {
+      z-index: 1;
+      transform: scale(0.7);
+      margin-left: -4%;
+    }
+  }
+
+  .vistazo-imagen {
     width: 100%;
     height: auto;
-    border-radius: var(--radio-sm);
-    margin-bottom: 1rem;
-  }
-
-  .galeria-card__titulo {
-    font-size: 1.2rem;
+    display: block;
+    object-fit: cover;
+    border-radius: 28px;
   }
 
   /* CTA Final */
@@ -590,6 +594,9 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
   }
 
   .cta-final__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 2.2rem;
+    font-weight: 500;
     color: #123B56;
     margin-bottom: 1rem;
   }
@@ -609,20 +616,27 @@ import mockupAplicacion from '@assets/images/celular-mockup.png'
     flex-wrap: wrap;
     gap: 1rem;
   }
+
   .centrar-vertical{
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
   }
+
   .alinear-abajo {
     display: flex;
     flex-direction: column-reverse;
   }
+
   .resaltar-coral{
     color: var(--color-coral);
   }
+
   .resaltar-azul{
     color: var(--color-azul);
+  }
+  .resaltar-menta{
+    color: var(--color-menta);
   }
 </style>

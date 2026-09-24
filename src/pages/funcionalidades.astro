@@ -1,13 +1,20 @@
 ---
 import PlantillaBase from '@plantillas/PlantillaBase.astro';
 import Boton from '@componentes/comunes/Boton.astro';
+import BannerCTA from '@componentes/comunes/BannerCTA.astro';
 import { Image } from 'astro:assets';
 
+// Imágenes de Funcionalidades
 import heroFuncImg from '@assets/images/Funcionalidades/Funcionalidades-hero.webp';
-import eventosImg from '@assets/images/Funcionalidades/calendario.webp';
-import tareasImg from '@assets/images/Funcionalidades/Funcionalidades-actividad.webp';
+import calendarioImg from '@assets/images/Funcionalidades/calendario.webp';
+import actividadImg from '@assets/images/Funcionalidades/Funcionalidades-actividad.webp';
 import familiaImg from '@assets/images/Funcionalidades/Funcionalidades-familia.webp';
-import AppImagen from '@assets/images/Funcionalidades/actividades.webp';
+import recuerdosImg from '@assets/images/Funcionalidades/recuerdos.webp';
+import tareasImg from '@assets/images/Funcionalidades/tareas.webp';
+import eventosImg from '@assets/images/Funcionalidades/eventos.webp';
+
+// Iconos de la carpeta Iconos
+import estrellaVerdeImg from '@assets/images/Iconos/estrella-combinada-verde.webp';
 ---
 
 <PlantillaBase 
@@ -15,11 +22,11 @@ import AppImagen from '@assets/images/Funcionalidades/actividades.webp';
   descripcion="Eventos, tareas y recuerdos relevantes, reunidos en una sola vista para que toda la familia tenga claridad."
   rutaActual="/funcionalidades"
 >
-  <!-- HERO  -->
+  <!-- HERO FUNCIONALIDADES -->
   <section class="seccion hero-funcionalidades">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
-        <h2 class="hero__titulo">Todo lo importante de tu familia, conectado.</h2>
+        <h1 class="hero__titulo">Todo lo importante de tu familia, conectado.</h1>
         <p class="hero__descripcion">
           Eventos, tareas y recuerdos relevantes, reunidos en una sola vista para que toda la familia tenga claridad.
         </p>
@@ -37,157 +44,173 @@ import AppImagen from '@assets/images/Funcionalidades/actividades.webp';
     </div>
   </section>
 
-  <!-- MÓDULO 1: INICIO -->
-  <section class="seccion seccion--blanca">
-    <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
-      <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo">Empieza el día sabiendo qué toca.</h2>
-        <p class="bloque-texto__descripcion">
-          Un resumen familiar claro con los próximos eventos, las tareas pendientes del hogar y los recuerdos del día.
-        </p>
-        <div class="lista-detalles-eventos">
-          <div class="detalle-item">
-            <h3 class="detalle-item__titulo resaltar-coral">•  Organiza</h3>
-            <p class="detalle-item__descripcion">Fecha y hora en un solo lugar.</p>
-          </div>
-          <div class="detalle-item">
-            <h3 class="detalle-item__titulo resaltar-coral">•  Participa</h3>
-            <p class="detalle-item__descripcion">Sabe quién está invitado.</p>
-          </div>
-          <div class="detalle-item">
-            <h3 class="detalle-item__titulo resaltar-coral">•  Ubica</h3>
-            <p class="detalle-item__descripcion">Añade el lugar del evento.</p>
-          </div>
-        </div>
-      </div>
-      <div class="bloque-visual">
+  <!-- SECCIÓN EMPIEZA EL DÍA (AZUL OSCURO CON CALENDARIO, TARJETA Y PÍLDORAS) -->
+  <section class="seccion seccion-empieza-dia">
+    <div class="contenedor empieza-dia__grid">
+      <!-- VISUAL CALENDARIO -->
+      <div class="empieza-dia__visual">
         <Image 
-          src={eventosImg} 
-          alt="Calendario de eventos con asignaciones por hora" 
-          class="bloque-visual__imagen"
+          src={calendarioImg} 
+          alt="Calendario semanal interactivo con dinosaurio" 
+          class="empieza-dia__imagen"
           width={440}
           height={440}
           loading="lazy"
         />
       </div>
+
+      <!-- TARJETA CENTRAL -->
+      <div class="empieza-dia__tarjeta-central">
+        <div class="tarjeta-central__contenido">
+          <h2 class="tarjeta-central__titulo">Empieza el día sabiendo qué toca.</h2>
+          <p class="tarjeta-central__descripcion">
+            Un resumen familiar claro con los próximos eventos, las tareas pendientes del hogar y los recuerdos del día.
+          </p>
+        </div>
+        <div class="tarjeta-central__banda-amarilla"></div>
+      </div>
+
+      <!-- PÍLDORAS DERECHA -->
+      <div class="empieza-dia__pildoras">
+        <div class="pildora-detalle">
+          <h3 class="pildora-detalle__titulo">• Organiza</h3>
+          <p class="pildora-detalle__descripcion">Fecha y hora en un solo lugar.</p>
+        </div>
+        <div class="pildora-detalle">
+          <h3 class="pildora-detalle__titulo">• Participa</h3>
+          <p class="pildora-detalle__descripcion">Sabe quién está invitado.</p>
+        </div>
+        <div class="pildora-detalle">
+          <h3 class="pildora-detalle__titulo">• Ubica</h3>
+          <p class="pildora-detalle__descripcion">Añade el lugar del evento.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- MÓDULO 2 Y 3 UNIFICADO: TAREAS Y FAMILIA (FILAS HORIZONTALES UNIFICADAS) -->
-  <section class="seccion seccion-filas-unificadas">
-    <div class="contenedor contenedor-filas-unificadas">
-      <article class="fila-unificada">
-        <div class="fila-unificada__visual">
+  <!-- SECCIÓN MÓDULOS DE TARJETAS (TAREAS EN VERDE Y FAMILIA EN CORAL) -->
+  <section class="seccion seccion-modulos-tarjetas">
+    <div class="contenedor modulos-tarjetas__contenedor">
+      <!-- TARJETA VERDE MENTA -->
+      <article class="tarjeta-modulo tarjeta-modulo--menta">
+        <div class="tarjeta-modulo__visual tarjeta__menta">
           <Image 
-            src={tareasImg} 
-            alt="Módulo de tareas asignadas con prioridades" 
-            class="fila-unificada__imagen"
-            width={300}
-            height={300}
+            src={actividadImg} 
+            alt="Módulo de tareas asignadas" 
+            class="tarjeta-modulo__imagen"
+            width={320}
+            height={320}
             loading="lazy"
           />
         </div>
-        <div class="fila-unificada__texto">
-          <h2 class="fila-unificada__titulo">Todos saben qué hacer hoy.</h2>
-          <p class="fila-unificada__descripcion">
+        <div class="tarjeta-modulo__texto">
+          <h2 class="tarjeta-modulo__titulo">Todos saben qué hacer hoy.</h2>
+          <p class="tarjeta-modulo__descripcion">
             Asigna tareas, define prioridades y mantén las responsabilidades del hogar claras para todos.
           </p>
         </div>
       </article>
 
-      <article class="fila-unificada fila-unificada--reversa">
-        <div class="fila-unificada__texto">
-          <h2 class="fila-unificada__titulo">La familia también es un equipo.</h2>
-          <p class="fila-unificada__descripcion">
-            Crea tu espacio familiar, invita a sus integrantes y decide quién puede formar parte de él.
-          </p>
-        </div>
-        <div class="fila-unificada__visual">
+      <!-- TARJETA CORAL -->
+      <article class="tarjeta-modulo tarjeta-modulo--coral">
+        <div class="tarjeta-modulo__visual tarjeta__coral">
           <Image 
             src={familiaImg} 
-            alt="Integrantes del grupo familiar participando en equipo" 
-            class="fila-unificada__imagen"
-            width={300}
-            height={300}
+            alt="Integrantes de la familia trabajando en equipo" 
+            class="tarjeta-modulo__imagen"
+            width={320}
+            height={320}
             loading="lazy"
           />
+        </div>
+        <div class="tarjeta-modulo__texto">
+          <h2 class="tarjeta-modulo__titulo">La familia también es un equipo.</h2>
+          <p class="tarjeta-modulo__descripcion">
+            Crea tu espacio familiar, invita a sus integrantes y decide quién puede formar parte de él.
+          </p>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- MÓDULO 4: RECUERDOS -->
-  <section class="seccion seccion--crema-oscura">
-    <div class="contenedor texto-centrado">
-      <h2 class="seccion__titulo">Guarda lo vivido, no solo organizarlo.</h2>
-      <p class="seccion__subtitulo">
-        Fotos, videos y momentos especiales para conservar los recuerdos más importantes de la familia.
-      </p>
-      <div class="galeria-grid">
-        <article class="galeria-card">
-          <Image src={AppImagen} alt="Galería Kivana" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 1</h3>
-        </article>
-        <article class="galeria-card">
-          <Image src={AppImagen} alt="Galería Kivana" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 2</h3>
-        </article>
-        <article class="galeria-card">
-          <Image src={AppImagen} alt="Galería Kivana" class="galeria-card__imagen" width={320} height={320} loading="lazy" />
-          <h3 class="galeria-card__titulo">Captura 3</h3>
-        </article>
+  <!-- SECCIÓN GUARDA LO VIVIDO (AZUL OSCURO CON ICONOS Y 3 PANTALLAS DE LA APP SUPERPUESTAS) -->
+  <section class="seccion seccion-guarda-vivido">
+    <div class="contenedor guarda-vivido__contenedor">
+      <!-- ICONO FLOTANTE DE LA CARPETA ICONOS -->
+      <div class="guarda-vivido__icono-flotante guarda-vivido__icono-flotante--izquierda" aria-hidden="true">
+        <Image src={estrellaVerdeImg} alt="" class="icono-flotante__img" width={110} height={110} />
+      </div>
+
+      <div class="guarda-vivido__encabezado">
+        <h2 class="guarda-vivido__titulo">
+          Guardar lo vivido, <br /> no solo organizarlo.
+        </h2>
+        <p class="guarda-vivido__descripcion">
+          Fotos, videos y momentos especiales para conservar los recuerdos más importantes de la familia.
+        </p>
+      </div>
+
+      <!-- BADGE DE PUNTOS DECORATIVO -->
+      <div class="guarda-vivido__icono-flotante guarda-vivido__icono-flotante--izquierda" aria-hidden="true">
+        <Image src={estrellaVerdeImg} alt="" class="icono-flotante__img" width={110} height={110} />
+      </div>
+
+      <!-- GRILLA CON LAS 3 CAPTURAS DE LA APP SUPERPUESTAS (LA CENTRAL ENCIMA) -->
+      <div class="guarda-vivido__grid">
+        <div class="tarjeta-pantalla">
+          <Image 
+            src={recuerdosImg} 
+            alt="Vista de Recuerdos en Kivana" 
+            class="tarjeta-pantalla__imagen"
+            width={360}
+            height={480}
+            loading="lazy"
+          />
+        </div>
+        <div class="tarjeta-pantalla tarjeta-pantalla--central">
+          <Image 
+            src={tareasImg} 
+            alt="Vista de Tareas en Kivana" 
+            class="tarjeta-pantalla__imagen"
+            width={360}
+            height={480}
+            loading="lazy"
+          />
+        </div>
+        <div class="tarjeta-pantalla">
+          <Image 
+            src={eventosImg} 
+            alt="Vista de Eventos en Kivana" 
+            class="tarjeta-pantalla__imagen"
+            width={360}
+            height={480}
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </section>
+
   <!-- CTA FINAL -->
-  <section class="seccion cta-final">
-    <div class="contenedor cta-final__contenedor">
-      <h2 class="cta-final__titulo">Todo lo importante, conectado.</h2>
-      <p class="cta-final__descripcion">
-        Una experiencia pensada para que toda la familia tenga claridad.
-      </p>
-      <div class="cta-final__acciones">
-        <Boton href="/contacto" variante="azul">
-          Conoce Kivana
-        </Boton>
-        <Boton href="/contacto" variante="blanco">
-          Contactar
-        </Boton>
-      </div>
-    </div>
-  </section>
+  <BannerCTA
+    colorFondo="#C6DEC9"
+    imagen={estrellaVerdeImg}
+    altImagen="Icono de estrella en manos"
+    titulo="Todo lo importante, conectado.."
+    descripcion="Una experiencia pensada para que toda la familia tenga claridad."
+    textoBoton1="Conoce Kivana"
+    hrefBoton1="/nosotros"
+    textoBoton2="Contactar"
+    hrefBoton2="/contacto"
+  />
 </PlantillaBase>
 
 <style>
+  /* HERO FUNCIONALIDADES */
   .hero-funcionalidades {
     background-color: var(--color-crema);
-  }
-
-  .hero__titulo {
-    margin-bottom: 1.5rem;
-  }
-
-  .hero__descripcion {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .badge-modulo, .badge-submodulo {
-    display: inline-block;
-    font-family: var(--fuente-cuerpo);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-azul);
-    background-color: var(--color-amarillo);
-    padding: 0.35rem 1rem;
-    border-radius: var(--radio-completo);
-    margin-bottom: 1.25rem;
-  }
-
-  .badge-submodulo {
-    background-color: var(--color-menta);
-    color: var(--color-blanco);
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
   }
 
   .grid-dos-columnas {
@@ -199,204 +222,366 @@ import AppImagen from '@assets/images/Funcionalidades/actividades.webp';
 
   @media (min-width: 1024px) {
     .grid-dos-columnas {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
     }
+  }
 
-    .grid-dos-columnas--reverso .bloque-texto {
-      order: 2;
-    }
+  .hero__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    font-weight: 500;
+    color: var(--color-menta);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
 
-    .grid-dos-columnas--reverso .bloque-visual {
-      order: 1;
-    }
+  .hero__descripcion {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #123B56;
+    opacity: 0.85;
+    max-width: 480px;
+    margin-bottom: 0;
   }
 
   .bloque-visual__imagen {
     width: 100%;
-    max-width: 460px;
+    max-width: 480px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    object-fit: contain;
   }
 
-  .seccion--blanca {
-    background-color: var(--color-blanco);
+  /* SECCIÓN EMPIEZA EL DÍA (AZUL OSCURO) */
+  .seccion-empieza-dia {
+    background-color: var(--color-azul);
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
   }
 
-  .lista-detalles-eventos {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-  }
-
-  .detalle-item {
-    padding: rem 1.25rem;
-    border-radius: var(--radio-sm);
-  }
-
-  .detalle-item__titulo {
-    font-size: 1.1rem;
-    color: var(--color-azul);
-    margin-bottom: 0.25rem;
-  }
-
-  .detalle-item__descripcion {
-    font-size: 0.95rem;
-  }
-
-  /* Filas Unificadas Horizontalmente (Tareas + Familia) */
-  .seccion-filas-unificadas {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-  }
-
-  .contenedor-filas-unificadas {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .fila-unificada {
-    background-color: var(--color-blanco);
-    border-radius: var(--radio-md);
-    padding: 1.5rem 2rem;
-    box-shadow: var(--sombra-suave);
-    border: 1px solid rgba(var(--color-azul-rgb), 0.05);
+  .empieza-dia__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
     align-items: center;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .fila-unificada:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-media);
-  }
-
-  @media (min-width: 768px) {
-    .fila-unificada {
-      grid-template-columns: 0.75fr 1.25fr;
-      padding: 1.5rem 2.5rem;
-    }
-
-    .fila-unificada--reversa {
-      grid-template-columns: 1.25fr 0.75fr;
+  @media (min-width: 1024px) {
+    .empieza-dia__grid {
+      grid-template-columns: 1.1fr 1.15fr 0.75fr;
     }
   }
 
-  .fila-unificada__visual {
+  .empieza-dia__visual {
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
-  .fila-unificada__imagen {
+  .empieza-dia__imagen {
     width: 100%;
-    max-width: 250px;
+    max-width: 420px;
     height: auto;
     object-fit: contain;
   }
 
-  .fila-unificada__texto {
+  /* TARJETA CENTRAL */
+  .empieza-dia__tarjeta-central {
+    background-color: var(--color-crema);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    justify-content: space-between;
+    min-height: 310px;
   }
 
-  .fila-unificada__titulo {
-    font-size: 1.35rem;
-    color: var(--color-azul);
-    margin: 0;
+  .tarjeta-central__contenido {
+    padding: 2.5rem 2rem 2rem 2rem;
   }
 
-  .fila-unificada__descripcion {
+  .tarjeta-central__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+    font-weight: 500;
+    color: #123B56;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .tarjeta-central__descripcion {
     font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(var(--color-azul-rgb), 0.85);
+    line-height: 1.55;
+    color: #123B56;
+    opacity: 0.85;
     margin: 0;
   }
 
-  .seccion--crema-oscura {
-    background-color: rgba(var(--color-amarillo-rgb), 0.12);
+  .tarjeta-central__banda-amarilla {
+    height: 55px;
+    background-color: var(--color-amarillo);
+    width: 100%;
   }
 
-  .seccion--crema-oscura .seccion__titulo {
-    margin-bottom: 1.25rem;
+  /* PÍLDORAS DERECHA */
+  .empieza-dia__pildoras {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
   }
 
-  .seccion--crema-oscura .seccion__subtitulo {
-    max-width: 680px;
+  .pildora-detalle {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    padding: 1rem 1.35rem;
+    color: var(--color-blanco);
+  }
+
+  .pildora-detalle__titulo {
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-blanco);
+    margin-bottom: 0.2rem;
+  }
+
+  .pildora-detalle__descripcion {
+    font-size: 0.875rem;
+    color: var(--color-blanco);
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  /* SECCIÓN TARJETAS (TAREAS + FAMILIA) */
+  .seccion-modulos-tarjetas {
+    background-color: var(--color-crema);
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .modulos-tarjetas__contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3.5rem;
-    line-height: 1.6;
   }
 
-  .galeria-grid {
+  .tarjeta-modulo {
+    border-radius: 36px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    margin-top: 1rem;
+    align-items: center;
+    color: var(--color-blanco);
+    box-shadow: 0 16px 40px rgba(18, 59, 86, 0.08);
+    padding: 20px;
   }
 
   @media (min-width: 768px) {
-    .galeria-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .tarjeta-modulo {
+      grid-template-columns: 0.85fr 1.15fr;
     }
   }
 
-  .galeria-card {
-    background-color: var(--color-blanco);
-    padding: 1.5rem;
-    border-radius: var(--radio-md);
-    box-shadow: var(--sombra-suave);
-    transition: transform 0.25s ease;
+  .tarjeta-modulo--menta {
+    background-color: #86BBA8;
   }
 
-  .galeria-card:hover {
-    transform: translateY(-4px);
+  .tarjeta-modulo--coral {
+    background-color: #EDA290;
   }
 
-  .galeria-card__imagen {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radio-sm);
-    margin-bottom: 1rem;
-  }
-
-  .galeria-card__titulo {
-    font-size: 1.2rem;
-  }
-
-  .cta-final {
-    background-color: #DDF0EA;
-    color: #123B56;
-    text-align: center;
-    border-radius: var(--radio-lg);
-    margin: 3rem 1.5rem;
-  }
-
-  .cta-final__titulo {
-    color: #123B56;
-    margin-bottom: 1rem;
-  }
-
-  .cta-final__descripcion {
-    color: #123B56;
-    font-size: 1.2rem;
-    max-width: 540px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-  }
-
-  .cta-final__acciones {
+  .tarjeta-modulo__visual {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
+    height: 100%;
+    border-radius: 36px;
+  }
+  .tarjeta__menta{
+    background-color: var(--color-menta);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  }
+  .tarjeta__coral{
+    background-color: var(--color-coral);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+  }
+  .tarjeta-modulo__imagen {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .tarjeta-modulo__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+    font-weight: 500;
+    color: var(--color-blanco);
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
+  }
+
+  .tarjeta-modulo__descripcion {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--color-blanco);
+    opacity: 0.95;
+    margin: 0;
+  }
+
+  /* SECCIÓN GUARDA LO VIVIDO */ 
+  .seccion-guarda-vivido {
+    background-color: var(--color-azul);
+    padding-top: 5rem;
+    padding-bottom: 7.5rem;
+
+    color: var(--color-blanco);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .guarda-vivido__contenedor {
+    position: relative;
+  }
+
+  .guarda-vivido__encabezado {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .guarda-vivido__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    font-weight: 500;
+    color: var(--color-blanco);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .guarda-vivido__descripcion {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-blanco);
+    opacity: 0.9;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+
+  .guarda-vivido__icono-flotante {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .guarda-vivido__icono-flotante--izquierda {
+    top: -10px;
+    left: 20px;
+    width: 100px;
+  }
+
+  @media (max-width: 767px) {
+    .guarda-vivido__icono-flotante--izquierda {
+      display: none;
+    }
+    .guarda-vivido__icono-flotante--derecha {
+      display: none;
+    }
+  }
+
+  .guarda-vivido__icono-flotante--derecha {
+    top: 20px;
+    right: 30px;
+  }
+
+  .icono-flotante__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
+  }
+
+  .badge-puntos {
+    background-color: rgba(107, 173, 153, 0.45);
+    border: 1.5px solid var(--color-menta);
+    color: #9EE0CF;
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+    font-weight: 500;
+    padding: 0.65rem 1.35rem;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* SUPERPOSICIÓN DE LAS 3 TARJETAS PANTALLA DE LA APP */
+  .guarda-vivido__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 768px) {
+    .guarda-vivido__grid {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .tarjeta-pantalla {
+    background-color: var(--color-blanco);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 768px) {
+    .tarjeta-pantalla {
+      flex: 1;
+    }
+
+    /* TARJETA DEL CENTRO SUPERPUESTA UN 10% Y CON SOMBRA DESTACADA */
+    .tarjeta-pantalla--central {
+      z-index: 3;
+      margin-left: -8%;
+      margin-right: -8%;
+      transform: scale(1.05);
+      box-shadow: 0 24px 55px rgba(0, 0, 0, 0.5);
+    }
+
+    .tarjeta-pantalla--central:hover {
+      transform: scale(1.08);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .tarjeta-pantalla__imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 
   @media (max-width: 767px) {
@@ -407,8 +592,5 @@ import AppImagen from '@assets/images/Funcionalidades/actividades.webp';
       flex-direction: column;
       align-items: center;
     }
-  }
-  .resaltar-coral{
-    color: var(--color-coral)
   }
 </style>

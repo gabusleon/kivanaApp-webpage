@@ -1,11 +1,12 @@
 ---
 import PlantillaBase from '@plantillas/PlantillaBase.astro';
 import ItemPregunta from '@componentes/ui/ItemPregunta.astro';
-import Boton from '@componentes/comunes/Boton.astro';
+import BannerCTA from '@componentes/comunes/BannerCTA.astro';
 import { listaPreguntasFrecuentes } from '@datos/preguntas';
 import { Image } from 'astro:assets';
 
 import mamaDinoImg from '@assets/images/FAQ/hero.webp';
+import iconoOrganizar from '@assets/images/Iconos/organizar.webp';
 
 const faqProducto = listaPreguntasFrecuentes.filter(item => item.categoria === 'producto');
 const faqKidos = listaPreguntasFrecuentes.filter(item => item.categoria === 'kidos');
@@ -86,27 +87,22 @@ const faqFamilia = listaPreguntasFrecuentes.filter(item => item.categoria === 'f
   </section>
 
   <!-- BLOQUE CTA FINAL FAQ -->
-  <section class="seccion cta-final-faq">
-    <div class="contenedor texto-centrado">
-      <h2 class="cta-final-faq__titulo">¿Listo para organizar lo que importa?</h2>
-      <p class="cta-final-faq__descripcion">
-        Descubre cómo Kivana puede acompañar la rutina de tu familia.
-      </p>
-      <div class="cta-final-faq__acciones">
-        <Boton href="/funcionalidades" variante="azul">
-          Conoce Kivana
-        </Boton>
-        <Boton href="/contacto" variante="blanco">
-          Contactar
-        </Boton>
-      </div>
-    </div>
-  </section>
+  <BannerCTA
+    colorFondo="#BAC8CB"
+    imagen={iconoOrganizar}
+    altImagen="Icono de organización"
+    titulo="¿ Listo para organizar lo que importa ?"
+    descripcion="Descubre cómo Kivana puede acompañar la rutina de tu familia."
+    textoBoton1="Conoce Kivana"
+    hrefBoton1="/funcionalidades"
+    textoBoton2="Contáctanos"
+    hrefBoton2="/contacto"
+  />
 </PlantillaBase>
 
 <style>
   .hero-faq {
-    background-color: rgba(var(--color-menta-rgb), 0.08);
+    background-color: rgba(var(--color-crema));
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
   }
@@ -144,7 +140,7 @@ const faqFamilia = listaPreguntasFrecuentes.filter(item => item.categoria === 'f
     }
   }
   .hero__titulo{
-    color: var(--color-coral);
+    color: var(--color-azul);
   }
   .hero-faq .hero__titulo {
     margin-bottom: 1.5rem;

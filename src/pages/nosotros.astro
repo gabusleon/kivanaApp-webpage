@@ -1,18 +1,23 @@
 ---
 import PlantillaBase from '@plantillas/PlantillaBase.astro';
 import Boton from '@componentes/comunes/Boton.astro';
+import BannerCTA from '@componentes/comunes/BannerCTA.astro';
 import { Image } from 'astro:assets';
 
+// Imágenes de Nosotros
 import nosotrosHeroImg from '@assets/images/Nosotros/Hero.webp';
 import organizacionSimpleImg from '@assets/images/Nosotros/familia.webp';
+
+// Iconos para las 3 tarjetas inclinadas
+import iconoOrganizar from '@assets/images/Iconos/organizar.webp';
+import iconoParticipar from '@assets/images/Iconos/participar.webp';
+import iconoRecordar from '@assets/images/Iconos/recuerdos.webp';
+
+// Iconos para la sección de Nuestros Valores
 import iconoCercania from '@assets/images/Iconos/cercania.webp';
 import iconoColaboracion from '@assets/images/Iconos/colaboracion.webp';
 import iconoAcompanamiento from '@assets/images/Iconos/acompanamiento.webp';
 import iconoMemoria from '@assets/images/Iconos/memoria.webp';
-import iconoChats from '@assets/images/Iconos/chats.webp';
-import iconoEventos from '@assets/images/Iconos/eventos.webp';
-import iconoRecordatorios from '@assets/images/Iconos/campana.webp';
-import iconoCompras from '@assets/images/Iconos/compras.webp';
 ---
 
 <PlantillaBase 
@@ -20,16 +25,16 @@ import iconoCompras from '@assets/images/Iconos/compras.webp';
   descripcion="Conoce la historia, visión y valores de Kivana: crear una forma más simple de vivir la organización familiar."
   rutaActual="/nosotros"
 >
-  <!-- HERO -->
+  <!-- 1. HERO NOSOTROS -->
   <section class="seccion hero-nosotros">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
-        <h2 class="hero__titulo">Una forma más simple de vivir la organización familiar</h2>
+        <h1 class="hero__titulo">Una forma más simple de vivir la organización familiar</h1>
         <p class="hero__descripcion">
           Kivana nace para ayudar a las familias a coordinarse, motivar a los niños y conservar los momentos que importan en la vida cotidiana.
         </p>
         <div class="hero__acciones">
-          <Boton href="/funcionalidades" variante="primario">
+          <Boton href='/funcionalidades' variante="primario">
             Conoce Kivana
           </Boton>
         </div>
@@ -47,126 +52,135 @@ import iconoCompras from '@assets/images/Iconos/compras.webp';
     </div>
   </section>
 
-  <!-- EL PROBLEMA VS LA IDEA -->
-  <section class="seccion seccion--blanca">
-    <div class="contenedor">
-      <div class="grid-dos-columnas margin-top-xl">
-        <div class="bloque-texto">
-          <h2 class="bloque-texto__titulo">¿Y si todo viviera en un solo lugar?</h2>
-          <p class="bloque-texto__descripcion">
-            La vida familiar se organiza entre mensajes, calendarios, recordatorios, tareas y momentos que queremos conservar. Kivana nace de una idea sencilla: reunir lo importante en un solo lugar y hacer que cada miembro pueda participar.
-          </p>
-          <p class="bloque-texto__descripcion">
-            Queremos que organizar la familia no sea solamente administrar pendientes. También significa construir hábitos, acompañar a los niños y guardar las experiencias que hacen especial la vida cotidiana.
-          </p>
-        </div>
-        <div class="bloque-visual">
-          <Image 
-            src={organizacionSimpleImg} 
-            alt="Organización familiar simple e integrada" 
-            class="bloque-visual__imagen"
-            width={460}
-            height={460}
-            loading="lazy"
-          />
-        </div>
+  <!-- 2. ¿Y SI TODO VIVIERA EN UN SOLO LUGAR? (IMAGEN 1 - FONDO VERDE MENTA) -->
+  <section class="seccion seccion-solo-lugar">
+    <div class="contenedor grid-dos-columnas">
+      <div class="bloque-visual">
+        <Image 
+          src={organizacionSimpleImg} 
+          alt="Dinosaurios reunidos alrededor de la mesa con fotos y elementos flotantes" 
+          class="bloque-visual__imagen"
+          width={480}
+          height={480}
+          loading="lazy"
+        />
       </div>
-      <div class="grid-iconos-dispersos">
-        <div class="icono-item">
-          <Image src={iconoChats} alt="Chats" width={60} height={60} loading="lazy" />
-          <span>Chats</span>
-        </div>
-        <div class="icono-item">
-          <Image src={iconoEventos} alt="Eventos" width={60} height={60} loading="lazy" />
-          <span>Eventos</span>
-        </div>
-        <div class="icono-item">
-          <Image src={iconoRecordatorios} alt="Recordatorios" width={60} height={60} loading="lazy" />
-          <span>Recordatorios</span>
-        </div>
-        <div class="icono-item">
-          <Image src={iconoCompras} alt="Compras" width={60} height={60} loading="lazy" />
-          <span>Compras</span>
-        </div>
+      <div class="bloque-texto">
+        <h2 class="solo-lugar__titulo">¿Y si todo viviera en un solo lugar?</h2>
+        <p class="solo-lugar__descripcion">
+          Kivana nace de una idea sencilla: reunir lo importante en un solo lugar y hacer que cada miembro pueda participar.
+        </p>
       </div>
-
     </div>
   </section>
 
-  <!-- FRASE DE PROPÓSITO -->
-  <section class="seccion seccion--proposito">
+  <!-- 3. QUEREMOS QUE ORGANIZAR LA FAMILIA... + 3 TARJETAS INCLINADAS (IMAGEN 2) -->
+  <section class="seccion seccion-tarjetas-inclinadas">
     <div class="contenedor texto-centrado">
-      <blockquote class="proposito-quote">
-        "Kivana organiza lo importante y convierte cada responsabilidad en un logro.
-"
-      </blockquote>
+      <p class="tarjetas-inclinadas__descripcion">
+        Queremos que organizar la familia no sea solamente administrar pendientes. También significa construir hábitos, acompañar a los niños y guardar las experiencias que hacen especial la vida cotidiana.
+      </p>
+
+      <div class="tarjetas-inclinadas__grid">
+        <!-- TARJETA ORGANIZAR -->
+        <article class="tarjeta-inclinada tarjeta-inclinada--organizar">
+          <div class="tarjeta-inclinada__icono-wrapper">
+            <Image src={iconoOrganizar} alt="Icono de Organizar" class="tarjeta-inclinada__icono" width={140} height={140} loading="lazy" />
+          </div>
+          <h3 class="tarjeta-inclinada__titulo">Organiza</h3>
+        </article>
+
+        <!-- TARJETA PARTICIPAR -->
+        <article class="tarjeta-inclinada tarjeta-inclinada--participar">
+          <div class="tarjeta-inclinada__icono-wrapper">
+            <Image src={iconoParticipar} alt="Icono de Participar" class="tarjeta-inclinada__icono" width={140} height={140} loading="lazy" />
+          </div>
+          <h3 class="tarjeta-inclinada__titulo">Participa</h3>
+        </article>
+
+        <!-- TARJETA RECORDAR -->
+        <article class="tarjeta-inclinada tarjeta-inclinada--recordar">
+          <div class="tarjeta-inclinada__icono-wrapper">
+            <Image src={iconoRecordar} alt="Icono de Recordar" class="tarjeta-inclinada__icono" width={140} height={140} loading="lazy" />
+          </div>
+          <h3 class="tarjeta-inclinada__titulo">Recuerda</h3>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- NUESTROS VALORES -->
-  <section class="seccion seccion--blanca">
+  <!-- 4. NUESTROS VALORES (IMAGEN 3) -->
+  <section class="seccion seccion-valores">
     <div class="contenedor texto-centrado">
-      <h2 class="seccion__titulo">Nuestros Valores</h2>
-      <p class="seccion__subtitulo">Los principios que guían nuestra forma de diseñar para la familia.</p>
+      <h2 class="valores__titulo-principal">Nuestros valores</h2>
+      
+      <div class="valores__layout">
+        <!-- FILA 1: Cercanía y Colaboración -->
+        <div class="valores__fila">
+          <p class="valores__texto-lateral valores__texto-lateral--izquierda">
+            Una herramienta para<br />la vida cotidiana
+          </p>
 
-      <div class="grid-cuatro-valores">
-        <article class="valor-card">
-          <Image src={iconoCercania} alt="Icono Cercanía" class="valor-card__icono" width={80} height={80} loading="lazy" />
-          <h3 class="valor-card__titulo">Cercanía</h3>
-          <p class="valor-card__descripcion">Una herramienta pensada para la vida cotidiana real de los hogares.</p>
-        </article>
+          <article class="valores__tarjeta valores__tarjeta--cercania">
+            <Image src={iconoCercania} alt="Cercanía" class="valores__icono" width={90} height={90} loading="lazy" />
+            <h3 class="valores__tarjeta-titulo color-menta">Cercanía</h3>
+          </article>
 
-        <article class="valor-card">
-          <Image src={iconoColaboracion} alt="Icono Colaboración" class="valor-card__icono" width={80} height={80} loading="lazy" />
-          <h3 class="valor-card__titulo">Colaboración</h3>
-          <p class="valor-card__descripcion">Cada integrante de la familia puede participar y sentirse tomado en cuenta.</p>
-        </article>
+          <article class="valores__tarjeta valores__tarjeta--colaboracion">
+            <Image src={iconoColaboracion} alt="Colaboración" class="valores__icono" width={90} height={90} loading="lazy" />
+            <h3 class="valores__tarjeta-titulo color-amarillo">Colaboración</h3>
+          </article>
 
-        <article class="valor-card">
-          <Image src={iconoAcompanamiento} alt="Icono Acompañamiento" class="valor-card__icono" width={80} height={80} loading="lazy" />
-          <h3 class="valor-card__titulo">Acompañamiento</h3>
-          <p class="valor-card__descripcion">Motivar e incentivar el crecimiento sin prometer un control absoluto.</p>
-        </article>
+          <p class="valores__texto-lateral valores__texto-lateral--derecha">
+            Cada integrante puede<br />participar.
+          </p>
+        </div>
 
-        <article class="valor-card">
-          <Image src={iconoMemoria} alt="Icono Memoria" class="valor-card__icono" width={80} height={80} loading="lazy" />
-          <h3 class="valor-card__titulo">Memoria</h3>
-          <p class="valor-card__descripcion">Organizar lo que viene para disfrutar y conservar lo vivido juntos.</p>
-        </article>
+        <!-- FILA 2: Acompañamiento y Memoria -->
+        <div class="valores__fila">
+          <p class="valores__texto-lateral valores__texto-lateral--izquierda">
+            Motivar sin prometer<br />control.
+          </p>
+
+          <article class="valores__tarjeta valores__tarjeta--acompanamiento">
+            <Image src={iconoAcompanamiento} alt="Acompañamiento" class="valores__icono" width={90} height={90} loading="lazy" />
+            <h3 class="valores__tarjeta-titulo color-coral">Acompañamiento</h3>
+          </article>
+
+          <article class="valores__tarjeta valores__tarjeta--memoria">
+            <Image src={iconoMemoria} alt="Memoria" class="valores__icono" width={90} height={90} loading="lazy" />
+            <h3 class="valores__tarjeta-titulo color-azul">Memoria</h3>
+          </article>
+
+          <p class="valores__texto-lateral valores__texto-lateral--derecha">
+            Organizar lo que viene<br />y conservar lo vivido.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="seccion cta-final">
-    <div class="contenedor cta-final__contenedor">
-      <h2 class="cta-final__titulo">Construyamos juntos la organización familiar.</h2>
-      <p class="cta-final__descripcion">
-        Únete a las familias que ya organizan lo que importa de manera cercana y colaborativa.
-      </p>
-      <div class="cta-final__acciones">
-        <Boton href="/funcionalidades" variante="menta">
-          Conoce Kivana
-        </Boton>
-        <Boton href="/contacto" variante="blanco">
-          Contáctanos
-        </Boton>
-      </div>
-    </div>
-  </section>
+  <BannerCTA
+    colorFondo="var(--color-coral)"
+    colorTexto="blanco"
+    imagen={iconoColaboracion}
+    altImagen="Icono de colaboración en equipo"
+    titulo="Construyamos juntos la organización familiar."
+    descripcion="Únete a las familias que ya organizan lo que importa de manera cercana y colaborativa."
+    textoBoton1="Conoce Kivana"
+    hrefBoton1="/funcionalidades"
+    textoBoton2="Contáctanos"
+    hrefBoton2="/contacto"
+  />
 </PlantillaBase>
 
 <style>
-  .badge-nosotros {
-    display: inline-block;
-    font-family: var(--font-cuerpo);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-azul);
-    background-color: var(--color-amarillo);
-    padding: 0.35rem 1rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1.25rem;
+  /* HERO NOSOTROS */
+  .hero-nosotros {
+    background-color: var(--color-crema);
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
   }
 
   .grid-dos-columnas {
@@ -182,161 +196,274 @@ import iconoCompras from '@assets/images/Iconos/compras.webp';
     }
   }
 
+  .hero__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+    font-weight: 500;
+    color: var(--color-menta);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__descripcion {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #123B56;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+  }
+
   .bloque-visual__imagen {
     width: 100%;
     max-width: 460px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    object-fit: contain;
   }
 
-  .seccion--blanca {
-    background-color: var(--color-blanco);
+  /* SECCIÓN ¿Y SI TODO VIVIERA EN UN SOLO LUGAR? (VERDE MENTA) */
+  .seccion-solo-lugar {
+    background-color: var(--color-menta);
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    color: var(--color-blanco);
   }
 
-  /* Grid Iconos Dispersos */
-  .grid-iconos-dispersos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-    padding: 1.5rem;
-    /*background-color: var(--color-crema);
-    */
-    border-radius: var(--radius-md);
+  .solo-lugar__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.1rem, 3.8vw, 2.8rem);
+    font-weight: 500;
+    color: var(--color-amarillo);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
   }
 
-  .icono-item {
+  .solo-lugar__descripcion {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--color-blanco);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  /* SECCIÓN TARJETAS INCLINADAS (ORGANIZAR, PARTICIPAR, RECORDAR) */
+  .seccion-tarjetas-inclinadas {
+    background-color: var(--color-crema);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .tarjetas-inclinadas__descripcion {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: #123B56;
+    opacity: 0.85;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3.5rem;
+  }
+
+  .tarjetas-inclinadas__grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 200px;
-    padding: 10px;
-    border-radius: 20px;
-    border: 2px solid var(--color-menta);
-    gap: 0.5rem;
-    font-family: var(--font-titulos);
-    font-weight: 600;
-    color: var(--color-menta);
-  }
-
-  .margin-top-xl {
-    margin-top: 3rem;
-  }
-
-  /* Sección Propósito Quote */
-  .seccion--proposito {
-    background-color: var(--color-coral);
-    color: var(--color-azul);
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .proposito-quote {
-    font-family: var(--fuente-titulos);
-    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
-    font-weight: 400;
-    line-height: 1.4;
-    max-width: 840px;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    color: var(--color-crema);
-  }
-
-  /* Grid Valores */
-  .grid-cuatro-valores {
-    display: grid;
-    grid-template-columns: 1fr;
+    justify-content: center;
     gap: 2rem;
-    margin-top: 2.5rem;
   }
 
   @media (min-width: 768px) {
-    .grid-cuatro-valores {
-      grid-template-columns: repeat(2, 1fr);
+    .tarjetas-inclinadas__grid {
+      flex-direction: row;
+      gap: 2.5rem;
     }
   }
 
-  @media (min-width: 1024px) {
-    .grid-cuatro-valores {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .valor-card {
-    background-color: var(--color-crema);
-    padding: 2rem 1.25rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--sombra-suave);
-    text-align: center;
-    transition: transform 0.25s ease;
-  }
-
-  .valor-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .valor-card__icono {
-    width: 80px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-  }
-
-  .valor-card__titulo {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .valor-card__descripcion {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  /* CTA Final */
-  .cta-final {
-    background-color: #FFF9F0;
-    border: 2px solid #DDF0EA;
-    color: #123B56;
-    text-align: center;
-    border-radius: var(--radio-lg);
-    margin: 3rem 1.5rem;
-    box-shadow: 0 10px 30px rgba(107, 173, 153, 0.12);
-  }
-
-  .cta-final__titulo {
-    color: #123B56;
-    margin-bottom: 1rem;
-  }
-
-  .cta-final__descripcion {
-    color: #123B56;
-    font-size: 1.2rem;
-    max-width: 540px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-  }
-
-  .cta-final__acciones {
+  .tarjeta-inclinada {
+    width: 220px;
+    height: 250px;
+    border-radius: 28px;
+    padding: 1.75rem 1.25rem;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 1rem;
+    box-shadow: 0 16px 36px rgba(18, 59, 86, 0.12);
+    transition: transform 0.3s ease;
   }
 
-  .hero-nosotros .hero__titulo {
-    margin-bottom: 1.5rem;
+  .tarjeta-inclinada:hover {
+    transform: scale(1.05) rotate(0deg) !important;
   }
 
-  .hero-nosotros .hero__descripcion {
-    margin-bottom: 2.25rem;
+  .tarjeta-inclinada--organizar {
+    background-color: var(--color-menta);
+    transform: rotate(-7deg);
   }
 
-  .hero-nosotros .hero__acciones {
-    margin-top: 1.5rem;
+  .tarjeta-inclinada--participar {
+    background-color: var(--color-coral);
+    transform: rotate(2deg);
+  }
+
+  .tarjeta-inclinada--recordar {
+    background-color: var(--color-amarillo);
+    transform: rotate(7deg);
+  }
+
+  .tarjeta-inclinada__icono-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tarjeta-inclinada__icono {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .tarjeta-inclinada__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .tarjeta-inclinada--organizar .tarjeta-inclinada__titulo,
+  .tarjeta-inclinada--participar .tarjeta-inclinada__titulo {
+    color: var(--color-blanco);
+  }
+
+  .tarjeta-inclinada--recordar .tarjeta-inclinada__titulo {
+    color: #123B56;
+  }
+
+  /* SECCIÓN NUESTROS VALORES */
+  .seccion-valores {
+    background-color: var(--color-crema);
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .valores__titulo-principal {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.2rem, 3.8vw, 2.8rem);
+    font-weight: 500;
+    color: #123B56;
+    margin-bottom: 3.5rem;
+  }
+
+  .valores__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .valores__fila {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .valores__fila {
+      display: grid;
+      grid-template-columns: 1fr 180px 180px 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+  }
+
+  .valores__texto-lateral {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: #123B56;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    .valores__texto-lateral--izquierda {
+      text-align: right;
+    }
+
+    .valores__texto-lateral--derecha {
+      text-align: left;
+    }
+  }
+
+  .valores__tarjeta {
+    background-color: var(--color-blanco);
+    border-radius: 24px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 180px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 28px rgba(18, 59, 86, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .valores__tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(18, 59, 86, 0.1);
+  }
+
+  .valores__tarjeta--cercania {
+    border: 2.5px solid var(--color-menta);
+  }
+
+  .valores__tarjeta--colaboracion {
+    border: 2.5px solid var(--color-amarillo);
+  }
+
+  .valores__tarjeta--acompanamiento {
+    border: 2.5px solid var(--color-coral);
+  }
+
+  .valores__tarjeta--memoria {
+    border: 2.5px solid var(--color-azul);
+  }
+
+  .valores__icono {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+  }
+
+  .valores__tarjeta-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .color-menta {
+    color: var(--color-menta);
+  }
+
+  .color-amarillo {
+    color: #D9A441;
+  }
+
+  .color-coral {
+    color: var(--color-coral);
+  }
+
+  .color-azul {
+    color: var(--color-azul);
   }
 
   @media (max-width: 767px) {
@@ -346,11 +473,6 @@ import iconoCompras from '@assets/images/Iconos/compras.webp';
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .hero-nosotros .hero__acciones,
-    .cta-final__acciones {
-      justify-content: center;
     }
   }
 </style>

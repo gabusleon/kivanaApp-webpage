@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import Boton from '@componentes/comunes/Boton.astro';
+
+interface Props {
+  colorFondo?: string;
+  colorTexto?: 'oscuro' | 'blanco';
+  imagen: ImageMetadata;
+  altImagen: string;
+  titulo: string;
+  descripcion: string;
+  textoBoton1?: string;
+  hrefBoton1?: string;
+  textoBoton2: string;
+  hrefBoton2?: string;
+}
+
+const {
+  colorFondo = 'var(--color-amarillo)',
+  colorTexto = 'oscuro',
+  imagen,
+  altImagen,
+  titulo,
+  descripcion,
+  textoBoton1 = 'Conoce Kivana',
+  hrefBoton1 = '/funcionalidades',
+  textoBoton2,
+  hrefBoton2 = '/contacto',
+} = Astro.props;
+---
+
+<section class="seccion seccion-cta-banner">
+  <div class="contenedor">
+    <div class={`cta-banner cta-banner--texto-${colorTexto}`} style={`background-color: ${colorFondo};`}>
+      <div class="cta-banner__visual">
+        <Image 
+          src={imagen} 
+          alt={altImagen} 
+          class="cta-banner__imagen"
+          width={220}
+          height={220}
+          loading="lazy"
+        />
+      </div>
+      <div class="cta-banner__contenido">
+        <h2 class="cta-banner__titulo">{titulo}</h2>
+        <p class="cta-banner__descripcion">{descripcion}</p>
+        <div class="cta-banner__acciones">
+          <Boton href={hrefBoton1} variante="menta">
+            {textoBoton1}
+          </Boton>
+          <Boton href={hrefBoton2} variante="blanco">
+            {textoBoton2}
+          </Boton>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .seccion-cta-banner {
+    padding-top: 2.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .cta-banner {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 28px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(18, 59, 86, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .cta-banner:hover {
+    box-shadow: 0 12px 30px rgba(18, 59, 86, 0.09);
+  }
+
+  @media (min-width: 768px) {
+    .cta-banner {
+      flex-direction: row;
+      text-align: left;
+      padding: 2.25rem 2.75rem;
+      gap: 2.5rem;
+    }
+
+    .cta-banner__visual {
+      flex-shrink: 0;
+    }
+
+    .cta-banner__acciones {
+      justify-content: flex-start;
+    }
+  }
+
+  .cta-banner__imagen {
+    width: 110px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    .cta-banner__imagen {
+      width: 140px;
+    }
+  }
+
+  .cta-banner__contenido {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  .cta-banner__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-banner--texto-oscuro .cta-banner__titulo {
+    color: #123B56;
+  }
+
+  .cta-banner--texto-blanco .cta-banner__titulo {
+    color: var(--color-blanco);
+  }
+
+  .cta-banner__descripcion {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-banner--texto-oscuro .cta-banner__descripcion {
+    color: #123B56;
+    opacity: 0.85;
+  }
+
+  .cta-banner--texto-blanco .cta-banner__descripcion {
+    color: var(--color-blanco);
+    opacity: 0.9;
+  }
+
+  .cta-banner__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

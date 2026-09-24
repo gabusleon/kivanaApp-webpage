@@ -4,202 +4,180 @@ import CampoFormulario from '@componentes/ui/CampoFormulario.astro';
 import Boton from '@componentes/comunes/Boton.astro';
 import { Image } from 'astro:assets';
 
-import contactoImg from '@assets/images/Contactos/hero.webp';
-
-const resolverRuta = (path: string) => {
-  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
-};
+import heroImg from '@assets/images/Contactos/hero.webp';
+import mensajeImg from '@assets/images/Contactos/mensaje.webp';
 ---
 
 <PlantillaBase 
   titulo="Contacto"
-  descripcion="¿Tienes una pregunta sobre Kivana? Ponte en contacto con nosotros y te responderemos lo antes posible."
+  descripcion="¿Tienes alguna pregunta sobre Kivana o sobre Kidos? Estamos para ayudarte, envíanos un mensaje y te responderemos tan pronto como sea posible."
   rutaActual="/contacto"
 >
-  <!-- HERO -->
+  <!-- HERO CONTACTO -->
   <section class="seccion hero-contacto">
-    <div class="contenedor grid-dos-columnas">
-      <div class="bloque-texto">
-        <h2 class="hero__titulo">Estamos para ayudarte</h2>
-        <p class="hero__descripcion">
-          ¿Tienes alguna pregunta sobre Kivana o sobre Kidos? Envíanos un mensaje y te responderemos tan pronto como sea posible.
+    <div class="contenedor hero-contacto__contenedor">
+      <div class="hero-contacto__contenido">
+        <h1 class="hero-contacto__titulo">¿ Tienes alguna pregunta sobre Kivana o sobre kidos ?</h1>
+        <p class="hero-contacto__descripcion">
+          Estamos para ayudarte, envíanos un mensaje y te responderemos tan pronto como sea posible.
         </p>
+        <div class="hero-contacto__accion">
+          <Boton href='/faq' variante="kidos">
+            Preguntas frecuentes
+          </Boton>
+        </div>
       </div>
-      <div class="bloque-visual">
+      <div class="hero-contacto__visual">
         <Image 
-          src={contactoImg} 
-          alt="Dinosaurio con sobre de mensaje para contacto" 
-          class="bloque-visual__imagen"
-          width={450}
-          height={450}
+          src={heroImg} 
+          alt="Vista previa de Kivana en smartphone con dinosaurios felices" 
+          class="hero-contacto__imagen"
+          width={480}
+          height={480}
           loading="eager"
         />
       </div>
     </div>
   </section>
-  <section class="seccion seccion--blanca">
+
+  <!-- TARJETA PRINCIPAL DEL FORMULARIO -->
+  <section class="seccion-tarjeta-contacto">
     <div class="contenedor">
-      <h2 class="hero-titulo">Implementar Formulario</h2>
-    </div>
-  </section>
-  <!-- FORMULARIO & OTROS MEDIOS DE CONTACTO
-  <section class="seccion seccion--blanca">
-    <div class="contenedor grid-contacto">
-      <.!-- COLUMNA 1: FORMULARIO --.>
-      <div class="contacto-formulario-wrapper">
-        <h2 class="contacto-subtitulo">Envíanos un mensaje</h2>
-        <form 
-        id="formulario-contacto" 
-        action="https://formspree.io/f/fercholkm19@gmail.com" 
-        method="POST" 
-        class="formulario"
-        novalidate
-        >
-        <CampoFormulario 
-        id="nombre" 
-        etiqueta="Nombre" 
-        tipo="text" 
-        placeholder="Tu nombre" 
-        requerido={true} 
-        />
-        
-        <CampoFormulario 
-            id="email" 
-            etiqueta="Correo electrónico" 
-            tipo="email" 
-            placeholder="correo@ejemplo.com" 
-            requerido={true} 
+      <div class="tarjeta-contacto">
+        <!-- COLUMNA IZQUIERDA (ILUSTRACIÓN Y TÍTULO) -->
+        <div class="tarjeta-contacto__izquierda">
+          <Image 
+            src={mensajeImg} 
+            alt="Dinosaurio feliz con mensaje de contacto" 
+            class="tarjeta-contacto__imagen rotar-imagen"
+            width={320}
+            height={320}
+            loading="eager"
+          />
+          <h2 class="tarjeta-contacto__titulo">
+            Envíanos <br /> un mensaje
+          </h2>
+        </div>
+
+        <!-- COLUMNA DERECHA (FORMULARIO VERDE MENTA) -->
+        <div class="tarjeta-contacto__derecha">
+          <form 
+            id="formulario-contacto" 
+            action="https://formspree.io/f/mqpaagbq" 
+            method="POST" 
+            class="formulario-contacto"
+            novalidate
+          >
+            <CampoFormulario 
+              id="nombre" 
+              etiqueta="Nombre:" 
+              tipo="text" 
+              placeholder="Tu nombre" 
+              requerido={true} 
             />
             
             <CampoFormulario 
-            id="asunto" 
-            etiqueta="Asunto" 
-            tipo="text" 
-            placeholder="¿Sobre qué quieres hablar?" 
-            requerido={true} 
+              id="email" 
+              etiqueta="Correo:" 
+              tipo="email" 
+              placeholder="correo@ejemplo.com" 
+              requerido={true} 
             />
             
             <CampoFormulario 
-            id="mensaje" 
-            etiqueta="Mensaje" 
-            tipo="textarea" 
-            placeholder="Cuéntanos cómo podemos ayudarte..." 
-            requerido={true} 
-            filas={5}
+              id="asunto" 
+              etiqueta="Asunto:" 
+              tipo="text" 
+              placeholder="¿ Sobre que quieres hablar ?" 
+              requerido={true} 
             />
             
-            <div class="formulario__estado" id="mensaje-estado" aria-live="polite"></div>
+            <CampoFormulario 
+              id="mensaje" 
+              etiqueta="Mensaje:" 
+              tipo="textarea" 
+              placeholder="Cuéntanos en que te podemos ayudarte ..." 
+              requerido={true} 
+              filas={4}
+            />
             
             <div class="formulario__boton-wrapper">
-              <Boton tipo="submit" variante="azul" id="boton-enviar" clase="boton-pildora">
+              <Boton tipo="submit" variante="kidos" id="boton-enviar" clase="boton-pildora">
                 Enviar mensaje
               </Boton>
             </div>
+
+            <div class="formulario__estado" id="mensaje-estado" aria-live="polite"></div>
           </form>
-        </div>
-        
-        <.!-- COLUMNA 2: OTROS MEDIOS DE CONTACTO --.>
-        <div class="contacto-medios">
-          <div class="medios-encabezado">
-            <div class="medios-encabezado__texto">
-              <h2 class="contacto-subtitulo">Otros medios de contacto</h2>
-            <p class="contacto-medios__descripcion">
-              También puedes consultar nuestras preguntas frecuentes o seguirnos en redes sociales oficiales.
-            </p>
-          </div>
-        </div>
-        
-        <div class="tarjetas-medios">
-          <a href={resolverRuta('/faq')} class="tarjeta-medio">
-            <div class="tarjeta-medio__icono" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69B3A5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-            </div>
-            <div class="tarjeta-medio__info">
-              <h3>Preguntas Frecuentes</h3>
-              <p>Resolvemos dudas sobre producto y Kidos</p>
-            </div>
-          </a>
-          
-          <a href="mailto:fercholkm19@gmail.com" class="tarjeta-medio">
-            <div class="tarjeta-medio__icono" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E98A76" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="4"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-            </div>
-            <div class="tarjeta-medio__info">
-              <h3>Soporte por Correo</h3>
-              <p>fercholkm19@gmail.com</p>
-            </div>
-          </a>
-          
-          <a href="https://instagram.com/kivana_app" target="_blank" rel="noopener noreferrer" class="tarjeta-medio">
-            <div class="tarjeta-medio__icono" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69B3A5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </div>
-            <div class="tarjeta-medio__info">
-              <h3>Instagram</h3>
-              <p>@kivana_app</p>
-            </div>
-          </a>
-          
-          <a href="https://tiktok.com/@kivana_app" target="_blank" rel="noopener noreferrer" class="tarjeta-medio">
-            <div class="tarjeta-medio__icono" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E98A76" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-              </svg>
-            </div>
-            <div class="tarjeta-medio__info">
-              <h3>TikTok</h3>
-              <p>@kivana_app</p>
-            </div>
-          </a>
         </div>
       </div>
     </div>
   </section>
--->
+
+  <!-- OTROS MEDIOS DE CONTACTO -->
+  <section class="seccion otros-medios">
+    <div class="contenedor">
+      <div class="otros-medios__encabezado">
+        <h2 class="otros-medios__titulo">Otros medios de contato</h2>
+        <p class="otros-medios__descripcion">
+          También puedes consultar nuestras preguntas frecuentes o seguirnos en redes sociales oficiales.
+        </p>
+      </div>
+
+      <div class="otros-medios__grid">
+        <a href="mailto:kivana-app-soporte@gmail.com" class="tarjeta-medio">
+          <div class="tarjeta-medio__icono tarjeta-medio__icono--correo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v4l3 3"></path>
+            </svg>
+          </div>
+          <div class="tarjeta-medio__info">
+            <h3 class="nombre__redes">Soporte por correo</h3>
+            <p>kivana-app-soporte@gmail.com</p>
+          </div>
+        </a>
+        
+        <a href="https://instagram.com/kivana_app" target="_blank" rel="noopener noreferrer" class="tarjeta-medio">
+          <div class="tarjeta-medio__icono tarjeta-medio__icono--instagram" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="tarjeta-medio__info">
+            <h3 class="nombre__redes">Instagram</h3>
+            <p>@kivana_app</p>
+          </div>
+        </a>
+        
+        <a href="https://www.facebook.com/profile.php?id=61591219323181" target="_blank" rel="noopener noreferrer" class="tarjeta-medio">
+          <div class="tarjeta-medio__icono tarjeta-medio__icono--facebook" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </div>
+          <div class="tarjeta-medio__info">
+            <h3 class="nombre__redes">Facebook</h3>
+            <p>Kivana</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </PlantillaBase>
 
 <style>
+  /* HERO CONTACTO */
   .hero-contacto {
-    background-color: rgba(var(--color-menta-rgb), 0.08);
+    background-color: var(--color-menta);
+    padding-top: 3.5rem;
+    padding-bottom: 7.5rem;
+    color: var(--color-blanco);
   }
 
-  .hero__titulo {
-    margin-bottom: 1.5rem;
-  }
-
-  .hero__descripcion {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .badge-contacto {
-    display: inline-block;
-    font-family: var(--font-cuerpo);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-azul);
-    background-color: var(--color-amarillo);
-    padding: 0.35rem 1rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1.25rem;
-  }
-
-  .grid-dos-columnas {
+  .hero-contacto__contenedor {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -207,233 +185,325 @@ const resolverRuta = (path: string) => {
   }
 
   @media (min-width: 1024px) {
-    .grid-dos-columnas {
-      grid-template-columns: 1fr 1fr;
+    .hero-contacto__contenedor {
+      grid-template-columns: 1.1fr 0.9fr;
     }
   }
 
-  .bloque-visual__imagen {
+  .hero-contacto__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2rem, 4.2vw, 3.1rem);
+    font-weight: 500;
+    color: var(--color-blanco);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    text-wrap: balance;
+  }
+
+  .hero-contacto__descripcion {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--color-blanco);
+    max-width: 520px;
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .hero-contacto__imagen {
     width: 100%;
     max-width: 440px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    object-fit: contain;
   }
 
-  .seccion--blanca {
-    background-color: #FFFFFF;
+  /* SECCIÓN TARJETA DEL FORMULARIO */
+  .seccion-tarjeta-contacto {
+    background-color: var(--color-crema);
+    padding-top: 0;
+    padding-bottom: 4rem;
+    margin-top: 3.5rem;
   }
 
-  .grid-contacto {
+  .tarjeta-contacto {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(18, 59, 86, 0.12);
   }
 
   @media (min-width: 1024px) {
-    .grid-contacto {
-      grid-template-columns: 1.25fr 0.75fr;
-      align-items: start;
+    .tarjeta-contacto {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  .contacto-subtitulo {
-    font-size: 1.65rem;
-    font-family: var(--fuente-titulos);
-    font-weight: 600;
-    color: #123B56;
-    margin-bottom: 1.25rem;
-    line-height: 1.3;
-  }
-  .seccion--menta{
-    background-color: var(--color-azul);
-  }
-  .contacto-formulario-wrapper {
-    background-color: var(--color-crema);
-    padding: 2.5rem;
-    border-radius: 26px;
-    box-shadow: 0 10px 30px rgba(18, 59, 86, 0.05);
-    border: 1px solid rgba(18, 59, 86, 0.04);
+  /* COLUMNA IZQUIERDA */
+  .tarjeta-contacto__izquierda {
+    background-color: var(--color-blanco);
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
   }
 
   @media (max-width: 640px) {
-    .contacto-formulario-wrapper {
-      padding: 1.75rem 1.25rem;
+    .tarjeta-contacto__izquierda {
+      flex-direction: column;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
     }
   }
 
+  .tarjeta-contacto__imagen {
+    width: 100%;
+    max-width: 210px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .tarjeta-contacto__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+    font-weight: 700;
+    color: #123B56;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* COLUMNA DERECHA (VERDE) */
+  .tarjeta-contacto__derecha {
+    background-color: var(--color-menta);
+    padding: 2.75rem 2.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .tarjeta-contacto__derecha {
+      padding: 2rem 1.25rem;
+    }
+  }
+
+  /* ESTILOS DE CAMPOS DE FORMULARIO EN LA COLUMNA VERDE */
+  .tarjeta-contacto__derecha :global(.formulario__campo) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__etiqueta) {
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-blanco);
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__requerido) {
+    display: none;
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__input),
+  .tarjeta-contacto__derecha :global(.formulario__textarea) {
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    border: none;
+    background-color: var(--color-crema);
+    color: #123B56;
+    box-shadow: inset 0 1px 2px rgba(18, 59, 86, 0.04);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__textarea) {
+    border-radius: 16px;
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__input::placeholder),
+  .tarjeta-contacto__derecha :global(.formulario__textarea::placeholder) {
+    color: rgba(18, 59, 86, 0.45);
+  }
+
+  .tarjeta-contacto__derecha :global(.formulario__input:focus),
+  .tarjeta-contacto__derecha :global(.formulario__textarea:focus) {
+    outline: none;
+    background-color: var(--color-blanco);
+    box-shadow: 0 0 0 3px rgba(254, 209, 122, 0.6);
+  }
+
   .formulario__boton-wrapper {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
   }
 
   .boton-pildora {
     border-radius: 999px !important;
-    padding: 0.9rem 2.25rem !important;
-    font-size: 1rem !important;
+    padding: 0.75rem 2rem !important;
+    font-size: 0.95rem !important;
   }
 
   .formulario__estado {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.25rem;
     font-family: var(--fuente-cuerpo);
-    font-weight: 700;
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 16px;
+    padding: 0.85rem 1.25rem;
     display: none;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(18, 59, 86, 0.08);
   }
 
   .formulario__estado--exito {
     display: block;
-    background-color: rgba(105, 179, 165, 0.15);
-    color: #4C8E7E;
-    border: 1px solid #69B3A5;
+    background-color: var(--color-blanco);
+    color: #123B56;
+    border: 2px solid var(--color-amarillo);
   }
 
   .formulario__estado--error {
     display: block;
-    background-color: rgba(233, 138, 118, 0.15);
-    color: #D87763;
-    border: 1px solid #E98A76;
+    background-color: var(--color-blanco);
+    color: #C0392B;
+    border: 2px solid var(--color-coral);
   }
 
-  /* Columna Derecha Medios de Contacto */
-  .medios-encabezado {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  /* OTROS MEDIOS DE CONTACTO */
+  .otros-medios {
+    background-color: var(--color-crema);
+    padding-top: 1rem;
+    padding-bottom: 5rem;
   }
 
-  .medios-encabezado__texto {
-    flex: 1;
+  .otros-medios__encabezado {
+    margin-bottom: 2rem;
   }
 
-  .medios-encabezado__mascota {
-    flex-shrink: 0;
+  .otros-medios__titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.85rem;
+    font-weight: 600;
+    color: #123B56;
+    margin-bottom: 0.6rem;
   }
 
-  .mascota-sutil-img {
-    width: 68px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(18, 59, 86, 0.08));
-  }
-
-  .contacto-medios__descripcion {
-    font-size: 1.05rem;
+  .otros-medios__descripcion {
+    font-size: 0.95rem;
     line-height: 1.5;
     color: #123B56;
     opacity: 0.85;
-    margin-bottom: 0;
+    max-width: 380px;
+    margin: 0;
   }
 
-  .tarjetas-medios {
-    display: flex;
-    flex-direction: column;
+  .otros-medios__grid {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.25rem;
-    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .otros-medios__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .tarjeta-medio {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    background-color: #FFF9F0;
+    background-color: var(--color-blanco);
     padding: 1.25rem 1.5rem;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(18, 59, 86, 0.04);
-    border: 1px solid rgba(18, 59, 86, 0.03);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(18, 59, 86, 0.06);
+    border: 1px solid rgba(18, 59, 86, 0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     text-decoration: none;
   }
 
   .tarjeta-medio:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(18, 59, 86, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(18, 59, 86, 0.1);
   }
 
   .tarjeta-medio__icono {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    background-color: #FFFFFF;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(18, 59, 86, 0.06);
+  }
+
+  .tarjeta-medio__icono--correo {
+    background-color: var(--color-coral);
+  }
+
+  .tarjeta-medio__icono--instagram {
+    background-color: var(--color-menta);
+  }
+
+  .tarjeta-medio__icono--facebook {
+    background-color: var(--color-azul);
   }
 
   .tarjeta-medio__info h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-family: var(--fuente-titulos);
-    font-weight: 600;
+    font-weight: 700;
     color: #123B56;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
   .tarjeta-medio__info p {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: #123B56;
     opacity: 0.75;
     margin: 0;
   }
-
-  @media (max-width: 767px) {
-    .hero-contacto .bloque-texto,
-    .bloque-texto {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .tarjeta-medio__info .nombre__redes{
+    font-weight: 600;
   }
+  .rotar-imagen{
+    transform: scaleX(-1);
+  }
+
 </style>
 
 <script>
   const form = document.getElementById('formulario-contacto') as HTMLFormElement | null;
   const estadoDiv = document.getElementById('mensaje-estado');
   const submitBtn = document.getElementById('boton-enviar') as HTMLButtonElement | null;
+  let timerOcultar: ReturnType<typeof setTimeout> | null = null;
 
   if (form && estadoDiv && submitBtn) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Limpiar estados previos
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Cancelar temporizador previo si existe
+      if (timerOcultar) {
+        clearTimeout(timerOcultar);
+        timerOcultar = null;
+      }
+
+      // Ocultar estados previos
       estadoDiv.className = 'formulario__estado';
       estadoDiv.style.display = 'none';
+      estadoDiv.textContent = '';
       
-      // Validar inputs
-      let esValido = true;
-      const campos = ['nombre', 'email', 'asunto', 'mensaje'];
-
-      campos.forEach(id => {
-        const input = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null;
-        const parent = input?.closest('.formulario__campo');
-        const errorSpan = document.getElementById(`${id}-error`);
-
-        if (input && parent && errorSpan) {
-          if (!input.value.trim()) {
-            esValido = false;
-            parent.classList.add('formulario__campo--invalido');
-            errorSpan.textContent = 'Este campo es obligatorio.';
-          } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
-            esValido = false;
-            parent.classList.add('formulario__campo--invalido');
-            errorSpan.textContent = 'Introduce un correo electrónico válido.';
-          } else {
-            parent.classList.remove('formulario__campo--invalido');
-            errorSpan.textContent = '';
-          }
-        }
-      });
-
-      if (!esValido) return;
-
-      // Estado Enviando
+      // Estado Enviando: Cambiar texto y deshabilitar botón
+      const textoOriginal = submitBtn.textContent || 'Enviar mensaje';
       submitBtn.disabled = true;
-      const textoOriginal = submitBtn.textContent;
       submitBtn.textContent = 'Enviando...';
 
       try {
@@ -447,18 +517,29 @@ const resolverRuta = (path: string) => {
         });
 
         if (response.ok) {
+          // Éxito: Muestra mensaje y limpia el formulario
           estadoDiv.className = 'formulario__estado formulario__estado--exito';
-          estadoDiv.textContent = '✓ Mensaje enviado correctamente. Te responderemos tan pronto como sea posible.';
+          estadoDiv.textContent = '✓ Mensaje enviado correctamente. Te responderemos pronto.';
+          estadoDiv.style.display = 'block';
           form.reset();
         } else {
           throw new Error('Error al enviar el formulario.');
         }
       } catch (err) {
+        // Error: Muestra mensaje de error y conserva los datos del formulario
         estadoDiv.className = 'formulario__estado formulario__estado--error';
-        estadoDiv.textContent = 'No fue posible enviar el mensaje. Por favor inténtalo nuevamente.';
+        estadoDiv.textContent = '× No pudimos enviar tu mensaje. Inténtalo nuevamente.';
+        estadoDiv.style.display = 'block';
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = textoOriginal;
+
+        // Desaparecer automáticamente después de 6 segundos
+        timerOcultar = setTimeout(() => {
+          estadoDiv.style.display = 'none';
+          estadoDiv.textContent = '';
+          estadoDiv.className = 'formulario__estado';
+        }, 6000);
       }
     });
   }

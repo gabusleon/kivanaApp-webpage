@@ -29,8 +29,7 @@ export const enlacesPiePagina = {
     { etiqueta: 'Eliminación de cuenta', ruta: '/delete-account', descripcionNav: 'Navegar a las instrucciones de Eliminación de cuenta' }*/
   ],
   redes: [
-    { etiqueta: 'Facebook', ruta: 'https://facebook.com/kivana_app', descripcionNav: 'Ir a la página oficial de Facebook de Kivana' },
-    { etiqueta: 'Instagram', ruta: 'https://instagram.com/kivana_app', descripcionNav: 'Ir al perfil oficial de Instagram de Kivana' },
-    { etiqueta: 'TikTok', ruta: 'https://tiktok.com/@kivana_app', descripcionNav: 'Ir al perfil oficial de TikTok de Kivana' }
+    { etiqueta: 'Facebook', ruta: 'https://www.facebook.com/profile.php?id=61591219323181', descripcionNav: 'Ir a la página oficial de Facebook de Kivana' },
+    { etiqueta: 'Instagram', ruta: 'https://instagram.com/kivana_app', descripcionNav: 'Ir al perfil oficial de Instagram de Kivana' }
   ]
 };

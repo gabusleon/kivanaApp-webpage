@@ -1,7 +1,10 @@
 ---
 import PlantillaBase from '@plantillas/PlantillaBase.astro';
 import Boton from '@componentes/comunes/Boton.astro';
+import BannerCTA from '@componentes/comunes/BannerCTA.astro';
 import { Image } from 'astro:assets';
+
+import dinoIcon from '@assets/images/Home/Home-dino-amarillo.webp';
 
 import heroDinoImg from '@assets/images/Kidos/hero.webp';
 // Importación de ilustraciones para los 5 pasos
@@ -49,7 +52,7 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
         <Image 
           src={heroDinoImg} 
           alt="Dinosaurio alegre celebrando con un huevo de recompensa Kidos" 
-          class="bloque-visual__imagen rotar-imagen"
+          class="bloque-visual__imagen"
           width={480}
           height={480}
           loading="eager"
@@ -140,10 +143,10 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   </section>
 
   <!-- SECCIÓN PARA PADRES: ACOMPAÑAMIENTO PARENTAL -->
-  <section class="seccion">
+  <section class="seccion seccion--amarilla">
     <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
       <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo">Motivar no significa hacerlo por ellos.</h2>
+        <h2 class="cta-final__titulo">Motivar no significa hacerlo por ellos.</h2>
         <p class="bloque-texto__descripcion">
           Los padres mantienen el control de la validación y acompañan el progreso de cada niño. Kidos acompaña, motiva y celebra cada paso de tus hijos garantizando un crecimiento positivo y seguro.
         </p>
@@ -162,22 +165,17 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   </section>
 
   <!-- CTA FINAL -->
-  <section class="seccion cta-final">
-    <div class="contenedor cta-final__contenedor">
-      <h2 class="cta-final__titulo">Cada pequeño logro cuenta.</h2>
-      <p class="cta-final__descripcion">
-        Acompaña cada pequeño paso y convierte las responsabilidades cotidianas en una aventura compartida.
-      </p>
-      <div class="cta-final__acciones">
-        <Boton href="/contacto" variante="azul">
-          Conoce Kivana
-        </Boton>
-        <Boton href="/contacto" variante="blanco">
-          Contactar
-        </Boton>
-      </div>
-    </div>
-  </section>
+  <BannerCTA
+    colorFondo="var(--color-amarillo)"
+    imagen={dinoIcon}
+    altImagen="Dinosaurio Kivana"
+    titulo="Cada pequeño logro cuenta."
+    descripcion="Acompaña cada pequeño paso y convierte las responsabilidades cotidianas en una aventura compartida.."
+    textoBoton1="Conoce Kivana"
+    hrefBoton1="/funcionalidades"
+    textoBoton2="Contactar"
+    hrefBoton2="/contacto"
+  />
 </PlantillaBase>
 
 <style>
@@ -289,7 +287,10 @@ import fondoKidosSvg from '@assets/images/fondoKidos.svg';
   .seccion--blanca {
     background-color: var(--color-blanco);
   }
-
+  .seccion--amarilla{
+    background-color: var(--color-amarillo);
+    color: var(--color-azul);
+  }
   .seccion--menta-suave {
     background-color: rgba(var(--color-menta-rgb), 0.18);
   }
