@@ -36,11 +36,11 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
       <div class="hero__contenido">
         <h1 class="hero__titulo">La vida familiar, más organizada y divertida.</h1>
         <p class="hero__descripcion">
-          Cada tarea, cada plan y cada pequeño logro pueden convertirse en una experiencia para toda la familia.
+          Organiza eventos, comparte tareas y guarda recuerdos en familia. Con Kidos, los niños avanzan en sus actividades mientras tú acompañas sus logros.
         </p>
         <div class="hero__acciones">
           <Boton href='/funcionalidades' variante="kidos">
-            Conoce Kivana
+            Ver funcionalidades
           </Boton>
         </div>
       </div>
@@ -57,7 +57,11 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
       </div>
     </div>
   </section>
-
+  <section >
+    <p class="texto-informacion">
+          Kivana está en desarrollo. Planeamos su lanzamiento en los próximos meses, todavía no hay una fecha confirmada.
+        </p>
+  </section>
   <!-- 2. PROBLEMA COTIDIANO -->
   <section class="seccion seccion--amarillo">
     <div class="contenedor grid-dos-columnas grid-dos-columnas--reverso">
@@ -84,7 +88,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
   <section class="seccion seccion--blanca">
     <div class="contenedor grid-dos-columnas">
       <div class="bloque-texto">
-        <h2 class="bloque-texto__titulo resaltar-menta"> <span class="resaltar-azul">Kivana</span> pone orden al día a día.</h2>
+        <h2 class="bloque-texto__titulo resaltar-azul"> Kivana pone orden al día a día.</h2>
         <p class="bloque-texto__descripcion">
           Kivana ayuda a que cada miembro de la familia sepa qué toca hoy y qué viene después.
         </p>
@@ -168,7 +172,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
         />
       </div>
       <div class="bloque-texto centrar-vertical">
-        <h2 class="bloque-texto__titulo">Ellos participan. <br><span class="resaltar-coral"> Tú acompañas. </span></h2>
+        <h2 class="bloque-texto__titulo">Ellos participan. <br> Tú acompañas.</h2>
         <p class="bloque-texto__descripcion">
           Los niños avanzan en sus actividades y los padres validan sus logros antes de continuar su aventura.
         </p>
@@ -256,10 +260,10 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
     altImagen="Icono de organización"
     titulo="Organiza lo que importa."
     descripcion="Conecta a tu familia con una experiencia simple y organizada."
-    textoBoton1="Conoce Kivana"
+    textoBoton1="Ver funcionalidades"
     hrefBoton1="/funcionalidades"
-    textoBoton2="Ver funcionalidades"
-    hrefBoton2="/funcionalidades"
+    textoBoton2="Contáctanos"
+    hrefBoton2="/contacto"
   />
 </PlantillaBase>
 
@@ -286,7 +290,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
     font-family: var(--fuente-titulos);
     font-size: clamp(2.2rem, 4.2vw, 3.2rem);
     font-weight: 500;
-    color: var(--color-menta);
+    color: var(--color-azul);
     line-height: 1.2;
     margin-bottom: 1.25rem;
   }
@@ -296,6 +300,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
     margin-bottom: 2rem;
     max-width: 560px;
     color: #123B56;
+  
   }
 
   .hero__acciones {
@@ -364,7 +369,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
   .bloque-texto__descripcion {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #123B56;
+    color: var(--color-azul);
   }
 
   .bloque-visual__imagen {
@@ -426,7 +431,7 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
     font-family: var(--fuente-cuerpo);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--color-menta);
+    color: var(--color-azul);
   }
 
   /* Kidos Flujo */
@@ -638,5 +643,13 @@ import tareas3Img from '@assets/images/Home/tareas3.webp';
   }
   .resaltar-menta{
     color: var(--color-menta);
+  }
+  .texto-informacion{
+    text-align: center;
+    padding: 20px;
+    text-wrap: balance;
+    font-weight: 800;
+    margin-top: -5px;
+    margin-bottom: 20px;
   }
 </style>
