@@ -5,11 +5,7 @@ export interface PreguntaFrecuente {
 }
 
 export const listaPreguntasFrecuentes: PreguntaFrecuente[] = [
-  {
-    categoria: 'producto',
-    pregunta: '¿Cuándo estará disponible Kivana?',
-    respuesta: 'Kivana está en desarrollo y planeamos lanzarla en los próximos meses. Todavía no hay una fecha confirmada. Publicaremos aquí las plataformas y los enlaces oficiales cuando estén disponibles.'
-  },
+  
   {
     categoria: 'producto',
     pregunta: '¿Qué es Kivana?',
@@ -22,8 +18,8 @@ export const listaPreguntasFrecuentes: PreguntaFrecuente[] = [
   },
   {
     categoria: 'producto',
-    pregunta: '¿En qué dispositivos estará disponible?',
-    respuesta: 'La disponibilidad final y los enlaces oficiales se publicarán en este sitio cuando Kivana esté disponible en las tiendas correspondientes.'
+    pregunta: '¿Cuándo estará disponible Kivana?',
+    respuesta: 'Kivana está en desarrollo y planeamos lanzarla en los próximos meses. Todavía no hay una fecha confirmada. Publicaremos aquí las plataformas y los enlaces oficiales cuando estén disponibles.'
   },
   {
     categoria: 'kidos',
